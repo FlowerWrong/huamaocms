@@ -1,0 +1,29 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "description": "base npm dependency",
+  "main": "index.js",
+  "dependencies": {
+    "csslint": "^0.10.0",
+    "htmlhint": "^0.9.7",
+    "jshint": "^2.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlowerWrong/base.git"
+  },
+  "keywords": [
+    "npm",
+    "rails"
+  ],
+  "author": "yang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FlowerWrong/base/issues"
+  },
+  "homepage": "https://github.com/FlowerWrong/base"
+}

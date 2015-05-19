@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Base rails app">
+  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin, rails, bower">
+  <title>Base</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="layout-fixed aside-float">
+
+<div class="wrapper">
+  <!-- top navbar-->
+  <header class="topnavbar-wrapper">
+     <!-- START Top Navbar-->
+     <nav class="navbar topnavbar" role="navigation">
+        <!-- START navbar header-->
+        <div class="navbar-header">
+           <a class="navbar-brand" href="#/">
+              <div class="brand-logo">
+                 <img class="img-responsive" alt="App Logo" src="<%= asset_path 'logo.png' %>">
+              </div>
+              <div class="brand-logo-collapsed">
+                 <img class="img-responsive" alt="App Logo" src="<%= asset_path 'logo-single.png' %>">
+              </div>
+           </a>
+        </div>
+        <!-- END navbar header-->
+        <!-- START Nav wrapper-->
+        <div class="nav-wrapper">
+           <!-- START Left navbar-->
+           <ul class="nav navbar-nav">
+              <li>
+                 <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                 <a class="hidden-xs" data-toggle-state="aside-collapsed" href="#">
+                    <em class="fa fa-navicon"></em>
+                 </a>
+                 <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+                 <a class="visible-xs sidebar-toggle" data-no-persist="true" data-toggle-state="aside-toggled" href="#">
+                    <em class="fa fa-navicon"></em>
+                 </a>
+              </li>
+              <!-- START User avatar toggle-->
+              <li>
+                 <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                 <a data-toggle="collapse" href="#user-block" id="user-block-toggle">
+                    <em class="icon-user"></em>
+                 </a>
+              </li>
+              <!-- END User avatar toggle-->
+              <!-- START lock screen-->
+              <li>
+                 <a title="Lock screen" href="#">
+                    <em class="icon-lock"></em>
+                 </a>
+              </li>
+              <!-- END lock screen-->
+           </ul>
+           <!-- END Left navbar-->
+           <!-- START Right Navbar-->
+           <ul class="nav navbar-nav navbar-right">
+              <!-- Search icon-->
+              <li>
+                 <a data-search-open="" href="#">
+                    <em class="icon-magnifier"></em>
+                 </a>
+              </li>
+              <!-- Fullscreen (only desktops)-->
+              <li class="visible-lg">
+                 <a data-toggle-fullscreen="" href="#">
+                    <em class="fa fa-expand"></em>
+                 </a>
+              </li>
+              <!-- START Alert menu-->
+              <li class="dropdown dropdown-list">
+                 <a data-toggle="dropdown" href="#">
+                    <em class="icon-bell"></em>
+                    <div class="label label-danger">11</div>
+                 </a>
+                 <!-- START Dropdown menu-->
+                 <ul class="dropdown-menu animated flipInX">
+                    <li>
+                       <!-- START list group-->
+                       <div class="list-group">
+                          <!-- list item-->
+                          <a class="list-group-item" href="#">
+                             <div class="media-box">
+                                <div class="pull-left">
+                                   <em class="fa fa-twitter fa-2x text-info"></em>
+                                </div>
+                                <div class="media-box-body clearfix">
+                                   <p class="m0">最新关注</p>
+                                   <p class="m0 text-muted">
+                                      <small>1 位最新关注</small>
+                                   </p>
+                                </div>
+                             </div>
+                          </a>
+                          <!-- list item-->
+                          <a class="list-group-item" href="#">
+                             <div class="media-box">
+                                <div class="pull-left">
+                                   <em class="fa fa-envelope fa-2x text-warning"></em>
+                                </div>
+                                <div class="media-box-body clearfix">
+                                   <p class="m0">新邮件</p>
+                                   <p class="m0 text-muted">
+                                      <small>你有 10 封新邮件</small>
+                                   </p>
+                                </div>
+                             </div>
+                          </a>
+                          <!-- list item-->
+                          <a class="list-group-item" href="#">
+                             <div class="media-box">
+                                <div class="pull-left">
+                                   <em class="fa fa-tasks fa-2x text-success"></em>
+                                </div>
+                                <div class="media-box-body clearfix">
+                                   <p class="m0">待定任务</p>
+                                   <p class="m0 text-muted">
+                                      <small>11 待定任务</small>
+                                   </p>
+                                </div>
+                             </div>
+                          </a>
+                          <!-- last list item -->
+                          <a class="list-group-item" href="#">
+                             <small>更多提醒</small>
+                             <span class="label label-danger pull-right">14</span>
+                          </a>
+                       </div>
+                       <!-- END list group-->
+                    </li>
+                 </ul>
+                 <!-- END Dropdown menu-->
+              </li>
+              <!-- END Alert menu-->
+              <!-- START Contacts button-->
+              <li>
+                 <a data-no-persist="true" data-toggle-state="offsidebar-open" href="#">
+                    <em class="icon-notebook"></em>
+                 </a>
+              </li>
+              <!-- END Contacts menu-->
+           </ul>
+           <!-- END Right Navbar-->
+        </div>
+        <!-- END Nav wrapper-->
+        <!-- START Search form-->
+        <form class="navbar-form" action="search.html" role="search">
+           <div class="form-group has-feedback">
+              <input type="text" class="form-control" placeholder="输入搜索条件后回车......">
+              <div class="fa fa-times form-control-feedback" data-search-dismiss=""></div>
+           </div>
+           <button class="hidden btn btn-default" type="submit">提交</button>
+        </form>
+        <!-- END Search form-->
+     </nav>
+     <!-- END Top Navbar-->
+  </header>
+  <!-- sidebar-->
+  <aside class="aside">
+     <!-- START Sidebar (left)-->
+     <div class="aside-inner">
+        <nav class="sidebar" data-sidebar-anyclick-close="">
+           <!-- START sidebar nav-->
+           <ul class="nav">
+              <!-- START user info-->
+              <li class="has-user-block">
+                 <div class="collapse" id="user-block">
+                    <div class="item user-block">
+                       <!-- User picture-->
+                       <div class="user-block-picture">
+                          <div class="user-block-status">
+                             <img width="60" height="60" class="img-thumbnail img-circle" alt="Avatar" src="<%= asset_path 'user/02.jpg' %>">
+                             <div class="circle circle-success circle-lg"></div>
+                          </div>
+                       </div>
+                       <!-- Name and Job-->
+                       <div class="user-block-info">
+                          <span class="user-block-name">你好, Dennis</span>
+                          <span class="user-block-role">码农</span>
+                       </div>
+                    </div>
+                 </div>
+              </li>
+              <!-- END user info-->
+              <!-- Iterates over all sidebar items-->
+              <li class="nav-heading ">
+                 <span data-localize="sidebar.heading.HEADER">主导航</span>
+              </li>
+              <li class="active">
+                 <a data-toggle="collapse" title="Dashboard" href="#dashboard" class="" aria-expanded="true">
+                    <em class="icon-speedometer"></em>
+                    <span data-localize="sidebar.nav.DASHBOARD">控制台</span>
+                 </a>
+                 <ul class="nav sidebar-subnav collapse in" id="dashboard" aria-expanded="true" style="">
+                    <li class="sidebar-subnav-header">控制台</li>
+                    <li class=" active">
+                       <a title="Dashboard v1" href="dashboard.html">
+                          <em></em>
+                          <span>控制台 v1</span>
+                       </a>
+                    </li>
+                    <li class=" ">
+                       <a title="Dashboard v2" href="dashboard_v2.html">
+                          <em></em>
+                          <span>控制台 v2</span>
+                       </a>
+                    </li>
+                    <li class=" ">
+                       <a title="Dashboard v3" href="dashboard_v3.html">
+                          <em></em>
+                          <span>控制台 v3</span>
+                       </a>
+                    </li>
+                 </ul>
+              </li>
+              <li class="nav-heading ">
+                 <span data-localize="sidebar.heading.COMPONENTS">组件</span>
+              </li>
+              <li class=" ">
+                 <a data-toggle="collapse" title="Forms" href="#forms">
+                    <em class="icon-note"></em>
+                    <span data-localize="sidebar.nav.form.FORM">表单</span>
+                 </a>
+                 <ul class="nav sidebar-subnav collapse" id="forms">
+                    <li class="sidebar-subnav-header">表单</li>
+                    <li class=" ">
+                       <a title="Standard" href="form-standard.html">
+                          <em></em>
+                          <span data-localize="sidebar.nav.form.STANDARD">Standard</span>
+                       </a>
+                    </li>
+                    <li class=" ">
+                       <a title="Extended" href="form-extended.html">
+                          <em></em>
+                          <span data-localize="sidebar.nav.form.EXTENDED">Extended</span>
+                       </a>
+                    </li>
+                    <li class=" ">
+                       <a title="Validation" href="form-validation.html">
+                          <em></em>
+                          <span data-localize="sidebar.nav.form.VALIDATION">Validation</span>
+                       </a>
+                    </li>
+                 </ul>
+              </li>
+              <li class="nav-heading ">
+                 <span data-localize="sidebar.heading.MORE">更多</span>
+              </li>
+              <li class=" ">
+                 <a data-toggle="collapse" title="Multilevel" href="#multilevel">
+                    <em class="fa fa-folder-open-o"></em>
+                    <span>多层导航</span>
+                 </a>
+                 <ul class="nav sidebar-subnav collapse" id="multilevel">
+                    <li class="sidebar-subnav-header">多层导航</li>
+                    <li class=" ">
+                       <a data-toggle="collapse" title="Level 1" href="#level1">
+                          <em></em>
+                          <span>第一层</span>
+                       </a>
+                       <ul class="nav sidebar-subnav collapse" id="level1">
+                          <li class="sidebar-subnav-header">第一层</li>
+                          <li class=" ">
+                             <a title="Level1 Item" href="multilevel-1.html">
+                                <em></em>
+                                <span>第一层 Item</span>
+                             </a>
+                          </li>
+                          <li class=" ">
+                             <a data-toggle="collapse" title="Level 2" href="#level2">
+                                <em></em>
+                                <span>第二层</span>
+                             </a>
+                             <ul class="nav sidebar-subnav collapse" id="level2">
+                                <li class="sidebar-subnav-header">第二层</li>
+                                <li class=" ">
+                                   <a data-toggle="collapse" title="Level 3" href="#level3">
+                                      <em></em>
+                                      <span>第三层</span>
+                                   </a>
+                                   <ul class="nav sidebar-subnav collapse" id="level3">
+                                      <li class="sidebar-subnav-header">第三层</li>
+                                      <li class=" ">
+                                         <a title="Level3 Item" href="multilevel-3.html">
+                                            <em></em>
+                                            <span>第三层 Item</span>
+                                         </a>
+                                      </li>
+                                   </ul>
+                                </li>
+                             </ul>
+                          </li>
+                       </ul>
+                    </li>
+                 </ul>
+              </li>
+           </ul>
+           <!-- END sidebar nav-->
+        </nav>
+     </div>
+     <!-- END Sidebar (left)-->
+  </aside>
+  <!-- offsidebar-->
+  <aside class="offsidebar">
+     <!-- START Off Sidebar (right)-->
+     <nav>
+        <div role="tabpanel">
+           <!-- Nav tabs-->
+           <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li class="active" role="presentation">
+                 <a data-toggle="tab" role="tab" aria-controls="app-settings" href="#app-settings">
+                    <em class="icon-equalizer fa-lg"></em>
+                 </a>
+              </li>
+              <li role="presentation">
+                 <a data-toggle="tab" role="tab" aria-controls="app-chat" href="#app-chat">
+                    <em class="icon-users fa-lg"></em>
+                 </a>
+              </li>
+           </ul>
+           <!-- Tab panes-->
+           <div class="tab-content">
+              <div class="tab-pane fade in active" role="tabpanel" id="app-settings">
+                 <h3 class="text-center text-thin">设置</h3>
+                 <div class="p">
+                    <h4 class="text-muted text-thin">主题</h4>
+                    <div class="table-grid mb">
+                       <div class="col mb">
+                          <div class="setting-color">
+                             <label data-load-css="/themes/theme-a.css">
+                                <input type="radio" checked="checked" name="setting-theme">
+                                <span class="icon-check"></span>
+                                <span class="split">
+                                   <span class="color bg-info"></span>
+                                   <span class="color bg-info-light"></span>
+                                </span>
+                                <span class="color bg-white"></span>
+                             </label>
+                          </div>
+                       </div>
+                       <div class="col mb">
+                          <div class="setting-color">
+                             <label data-load-css="/themes/theme-b.css">
+                                <input type="radio" name="setting-theme">
+                                <span class="icon-check"></span>
+                                <span class="split">
+                                   <span class="color bg-green"></span>
+                                   <span class="color bg-green-light"></span>
+                                </span>
+                                <span class="color bg-white"></span>
+                             </label>
+                          </div>
+                       </div>
+                       <div class="col mb">
+                          <div class="setting-color">
+                             <label data-load-css="/themes/theme-c.css">
+                                <input type="radio" name="setting-theme">
+                                <span class="icon-check"></span>
+                                <span class="split">
+                                   <span class="color bg-purple"></span>
+                                   <span class="color bg-purple-light"></span>
+                                </span>
+                                <span class="color bg-white"></span>
+                             </label>
+                          </div>
+                       </div>
+                       <div class="col mb">
+                          <div class="setting-color">
+                             <label data-load-css="/themes/theme-d.css">
+                                <input type="radio" name="setting-theme">
+                                <span class="icon-check"></span>
+                                <span class="split">
+                                   <span class="color bg-danger"></span>
+                                   <span class="color bg-danger-light"></span>
+                                </span>
+                                <span class="color bg-white"></span>
+                             </label>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="table-grid mb">
+                       <div class="col mb">
+                          <div class="setting-color">
+                             <label data-load-css="/themes/theme-e.css">
+                                <input type="radio" name="setting-theme">
+                                <span class="icon-check"></span>
+                                <span class="split">
+                                   <span class="color bg-info-dark"></span>
+                                   <span class="color bg-info"></span>
+                                </span>
+                                <span class="color bg-gray-dark"></span>
+                             </label>
+                          </div>
+                       </div>
+                       <div class="col mb">
+                          <div class="setting-color">
+                             <label data-load-css="/themes/theme-f.css">
+                                <input type="radio" name="setting-theme">
+                                <span class="icon-check"></span>
+                                <span class="split">
+                                   <span class="color bg-green-dark"></span>
+                                   <span class="color bg-green"></span>
+                                </span>
+                                <span class="color bg-gray-dark"></span>
+                             </label>
+                          </div>
+                       </div>
+                       <div class="col mb">
+                          <div class="setting-color">
+                             <label data-load-css="/themes/theme-g.css">
+                                <input type="radio" name="setting-theme">
+                                <span class="icon-check"></span>
+                                <span class="split">
+                                   <span class="color bg-purple-dark"></span>
+                                   <span class="color bg-purple"></span>
+                                </span>
+                                <span class="color bg-gray-dark"></span>
+                             </label>
+                          </div>
+                       </div>
+                       <div class="col mb">
+                          <div class="setting-color">
+                             <label data-load-css="/themes/theme-h.css">
+                                <input type="radio" name="setting-theme">
+                                <span class="icon-check"></span>
+                                <span class="split">
+                                   <span class="color bg-danger-dark"></span>
+                                   <span class="color bg-danger"></span>
+                                </span>
+                                <span class="color bg-gray-dark"></span>
+                             </label>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="p">
+                    <h4 class="text-muted text-thin">布局</h4>
+                    <div class="clearfix">
+                       <p class="pull-left">Fixed</p>
+                       <div class="pull-right">
+                          <label class="switch">
+                             <input type="checkbox" data-toggle-state="layout-fixed" id="chk-fixed">
+                             <span></span>
+                          </label>
+                       </div>
+                    </div>
+                    <div class="clearfix">
+                       <p class="pull-left">Boxed</p>
+                       <div class="pull-right">
+                          <label class="switch">
+                             <input type="checkbox" data-toggle-state="layout-boxed" id="chk-boxed">
+                             <span></span>
+                          </label>
+                       </div>
+                    </div>
+                    <div class="clearfix">
+                       <p class="pull-left">RTL</p>
+                       <div class="pull-right">
+                          <label class="switch">
+                             <input type="checkbox" id="chk-rtl">
+                             <span></span>
+                          </label>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="p">
+                    <h4 class="text-muted text-thin">侧边栏</h4>
+                    <div class="clearfix">
+                       <p class="pull-left">Collapsed</p>
+                       <div class="pull-right">
+                          <label class="switch">
+                             <input type="checkbox" data-toggle-state="aside-collapsed" id="chk-collapsed">
+                             <span></span>
+                          </label>
+                       </div>
+                    </div>
+                    <div class="clearfix">
+                       <p class="pull-left">Float</p>
+                       <div class="pull-right">
+                          <label class="switch">
+                             <input type="checkbox" data-toggle-state="aside-float" id="chk-float">
+                             <span></span>
+                          </label>
+                       </div>
+                    </div>
+                    <div class="clearfix">
+                       <p class="pull-left">Hover</p>
+                       <div class="pull-right">
+                          <label class="switch">
+                             <input type="checkbox" data-toggle-state="aside-hover" id="chk-hover">
+                             <span></span>
+                          </label>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="tab-pane fade" role="tabpanel" id="app-chat">
+                 <h3 class="text-center text-thin">动态</h3>
+                 <ul class="nav">
+                    <!-- START list title-->
+                    <li class="p">
+                       <small class="text-muted">在线</small>
+                    </li>
+                    <!-- END list title-->
+                    <li>
+                       <!-- START User status-->
+                       <a class="media-box p mt0" href="#">
+                          <span class="pull-right">
+                             <span class="circle circle-success circle-lg"></span>
+                          </span>
+                          <span class="pull-left">
+                             <!-- Contact avatar-->
+                             <img class="media-box-object img-circle thumb48" alt="Image" src="<%= asset_path 'user/05.jpg' %>">
+                          </span>
+                          <!-- Contact info-->
+                          <span class="media-box-body">
+                             <span class="media-box-heading">
+                                <strong>美女1</strong>
+                                <br>
+                                <small class="text-muted">设计师</small>
+                             </span>
+                          </span>
+                       </a>
+                       <!-- END User status-->
+                       <!-- START User status-->
+                       <a class="media-box p mt0" href="#">
+                          <span class="pull-right">
+                             <span class="circle circle-danger circle-lg"></span>
+                          </span>
+                          <span class="pull-left">
+                             <!-- Contact avatar-->
+                             <img class="media-box-object img-circle thumb48" alt="Image" src="<%= asset_path 'user/07.jpg' %>">
+                          </span>
+                          <!-- Contact info-->
+                          <span class="media-box-body">
+                             <span class="media-box-heading">
+                                <strong>美女2</strong>
+                                <br>
+                                <small class="text-muted">诗人</small>
+                             </span>
+                          </span>
+                       </a>
+                       <!-- END User status-->
+                       <!-- START User status-->
+                       <a class="media-box p mt0" href="#">
+                          <span class="pull-right">
+                             <span class="circle circle-warning circle-lg"></span>
+                          </span>
+                          <span class="pull-left">
+                             <!-- Contact avatar-->
+                             <img class="media-box-object img-circle thumb48" alt="Image" src="<%= asset_path 'user/08.jpg' %>">
+                          </span>
+                          <!-- Contact info-->
+                          <span class="media-box-body">
+                             <span class="media-box-heading">
+                                <strong>美女3</strong>
+                                <br>
+                                <small class="text-muted">码农</small>
+                             </span>
+                          </span>
+                       </a>
+                       <!-- END User status-->
+                    </li>
+                    <!-- START list title-->
+                    <li class="p">
+                       <small class="text-muted">未在线</small>
+                    </li>
+                    <!-- END list title-->
+                    <li>
+                       <!-- START User status-->
+                       <a class="media-box p mt0" href="#">
+                          <span class="pull-right">
+                             <span class="circle circle-lg"></span>
+                          </span>
+                          <span class="pull-left">
+                             <!-- Contact avatar-->
+                             <img class="media-box-object img-circle thumb48" alt="Image" src="<%= asset_path 'user/09.jpg' %>">
+                          </span>
+                          <!-- Contact info-->
+                          <span class="media-box-body">
+                             <span class="media-box-heading">
+                                <strong>Dennis</strong>
+                                <br>
+                                <small class="text-muted">开发</small>
+                             </span>
+                          </span>
+                       </a>
+                       <!-- END User status-->
+                    </li>
+                    <li>
+                       <div class="p-lg text-center">
+                          <!-- Optional link to list more users-->
+                          <a class="btn btn-purple btn-sm" title="See more contacts" href="#">
+                             <strong>加载跟多......</strong>
+                          </a>
+                       </div>
+                    </li>
+                 </ul>
+                 <!-- Extra items-->
+                 <div class="p">
+                    <p>
+                       <small class="text-muted">任务完成度</small>
+                    </p>
+                    <div class="progress progress-xs m0">
+                       <div class="progress-bar progress-bar-success progress-80" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar">
+                          <span class="sr-only">80% Complete</span>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="p">
+                    <p>
+                       <small class="text-muted">上传额度</small>
+                    </p>
+                    <div class="progress progress-xs m0">
+                       <div class="progress-bar progress-bar-warning progress-40" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar">
+                          <span class="sr-only">40% Complete</span>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </nav>
+     <!-- END Off Sidebar (right)-->
+  </aside>
+  <!-- Main section-->
+  <section>
+     <!-- Page content-->
+     <div class="content-wrapper">
+        <div class="content-heading">
+           <!-- START Language list-->
+           <div class="pull-right">
+              <div class="btn-group">
+                 <button class="btn btn-default" data-toggle="dropdown" type="button">Chinese</button>
+                 <ul class="dropdown-menu dropdown-menu-right animated fadeInUpShort" role="menu">
+                    <li><a data-set-lang="zh" href="#">Chinese</a>
+                    </li>
+                    <li><a data-set-lang="en" href="#">English</a>
+                    </li>
+                    <li><a data-set-lang="es" href="#">Spanish</a>
+                    </li>
+                 </ul>
+              </div>
+           </div>
+           <!-- END Language list    -->
+           控制台
+           <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+        </div>
+        <!-- START widgets box-->
+        <div class="row">
+           <div class="col-lg-3 col-sm-6">
+              <!-- START widget-->
+              <div class="panel widget bg-primary">
+                 <div class="row row-table">
+                    <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+                       <em class="icon-cloud-upload fa-3x"></em>
+                    </div>
+                    <div class="col-xs-8 pv-lg">
+                       <div class="h2 mt0">1700</div>
+                       <div class="text-uppercase">上传</div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-3 col-sm-6">
+              <!-- START widget-->
+              <div class="panel widget bg-purple">
+                 <div class="row row-table">
+                    <div class="col-xs-4 text-center bg-purple-dark pv-lg">
+                       <em class="icon-globe fa-3x"></em>
+                    </div>
+                    <div class="col-xs-8 pv-lg">
+                       <div class="h2 mt0">700
+                          <small>GB</small>
+                       </div>
+                       <div class="text-uppercase">提问</div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-3 col-md-6 col-sm-12">
+              <!-- START widget-->
+              <div class="panel widget bg-green">
+                 <div class="row row-table">
+                    <div class="col-xs-4 text-center bg-green-dark pv-lg">
+                       <em class="icon-bubbles fa-3x"></em>
+                    </div>
+                    <div class="col-xs-8 pv-lg">
+                       <div class="h2 mt0">500</div>
+                       <div class="text-uppercase">消息</div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-3 col-md-6 col-sm-12">
+              <!-- START date widget-->
+              <div class="panel widget">
+                 <div class="row row-table">
+                    <div class="col-xs-4 text-center bg-green pv-lg">
+                       <!-- See formats: https://docs.angularjs.org/api/ng/filter/date-->
+                       <div class="text-sm" data-format="MMMM" data-now="">April</div>
+                       <br>
+                       <div class="h2 mt0" data-format="D" data-now="">19</div>
+                    </div>
+                    <div class="col-xs-8 pv-lg">
+                       <div class="text-uppercase" data-format="dddd" data-now="">Sunday</div>
+                       <br>
+                       <div class="h2 mt0" data-format="h:mm" data-now="">2:42</div>
+                       <div class="text-muted text-sm" data-format="a" data-now="">pm</div>
+                    </div>
+                 </div>
+              </div>
+              <!-- END date widget    -->
+           </div>
+        </div>
+        <!-- END widgets box-->
+        <div class="row">
+          <%= yield %>
+        </div>
+     </div>
+  </section>
+  <!-- Page footer-->
+  <footer>
+     <span>&copy; 2015 - Rails</span>
+  </footer>
+</div>
+</body>
+</html>

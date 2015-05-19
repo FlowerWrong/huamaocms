@@ -1,0 +1,19 @@
+= content_for :page_title do
+  = t('form.edit')
+  = t('activerecord.models.category')
+
+= content_for :content_title do
+  = t 'form.edit'
+  = t 'activerecord.models.category'
+  <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+
+= content_for :page_only_css do
+  = stylesheet_link_tag 'sortable'
+
+= content_for :page_only_js do
+  = javascript_include_tag 'sortable'
+
+Count: #{ @categories.to_a.count }
+
+%ol.sortable_tree{ data: { rebuild_url: rebuild_admin_categories_url } }
+  = sortable_tree @categories, namespace: :admin

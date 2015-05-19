@@ -1,0 +1,165 @@
+<% content_for :page_only_css do %>
+  <%= stylesheet_link_tag 'tags', media: 'all', 'data-turbolinks-track' => true %>
+<% end %>
+
+<% content_for :page_only_js do %>
+  <%= javascript_include_tag 'tags', 'data-turbolinks-track' => true %>
+
+<script src="/plugins/ueditor/ueditor.config.js"></script>
+<script src="/plugins/ueditor/ueditor.all.min.js"></script>
+<script src="/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script>
+$(document).ready(function(){
+  var ue = UE.getEditor('ue-container', {
+    // initialFrameWidth : '100%',
+    // initialFrameHeight: 600
+  });
+});
+</script>
+<% end %>
+
+<%= form_for([:admin, @post], html: { multipart: true }, class: 'form-horizontal') do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :title, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.title') %>
+        <span class="symbol required">*</span>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.text_field :title, required: 'required', class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :summary, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.summary') %>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.text_area :summary, class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :content, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.content') %>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.text_area :content, class: 'ue-container', id: 'ue-container' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :category_id, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.category_id') %>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.select :category_id, options_for_select(nested_set_options(Category) {|i| "#{'-' * i.level} #{i.name}" }, @post.category_id) %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :author, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.author') %>
+        <span class="symbol required">*</span>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.text_field :author, required: 'required', class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :img, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.img') %>
+      <% end %>
+      <div class="col-sm-10">
+      <% if @post.img? %>
+        <%= image_tag(@post.img_url, width: 72, height: 72) %>
+        <p></p>
+      <% else %>
+        <p class="help-block">请上传特色图片</p>
+      <% end %>
+      <%= f.file_field :img %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :tags, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.tags') %>
+      <% end %>
+      <div class="col-sm-10">
+        <%= f.text_field :tag_list, 'data-role'=>'tagsinput' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :publish_time, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.publish_time') %>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.datetime_select :publish_time, class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :stick, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.stick') %>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.check_box :stick, class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :can_comment, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.can_comment') %>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.check_box :can_comment, class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :is_recommend, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.is_recommend') %>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.check_box :is_recommend, class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :is_published, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.post.is_published') %>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.check_box :is_published, class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <div class="panel-footer text-center">
+    <%= f.submit t('form.submit'), class: 'btn btn-info submit-form' %>
+    <%= link_to t('form.back'), admin_posts_path, class: 'btn btn-info' %>
+  </div>
+<% end %>

@@ -1,0 +1,76 @@
+{
+  "dashboard": {
+    "WELCOME": "欢迎访问后台!"
+  },
+  "sidebar": {
+    "WELCOME": "欢迎",
+    "heading": {
+      "HEADER": "主导航",
+      "COMPONENTS": "组件",
+      "MORE": "更多"
+    },
+    "nav": {
+      "DASHBOARD": "控制台",
+      "WIDGETS": "小工具",
+      "DOCUMENTATION": "文档",
+      "element": {
+        "ELEMENTS": "元素",
+        "BUTTON": "按钮",
+        "COLOR": "颜色",
+        "NOTIFICATION": "提醒",
+        "CAROUSEL": "Carousel",
+        "SPINNER": "进度条",
+        "ANIMATION": "动画",
+        "DROPDOWN": "下拉",
+        "PANEL": "面板",
+        "PORTLET": "Portlet",
+        "GRID": "栅格",
+        "GRID_MASONRY": "Grid Masonry",
+        "TYPO": "Typography",
+        "FONT_ICON": "字体图标",
+        "WEATHER_ICON": "天气图标"
+      },
+      "form": {
+        "FORM": "表格",
+        "STANDARD": "标准",
+        "EXTENDED": "扩展",
+        "VALIDATION": "验证"
+      },
+      "chart": {
+        "CHART": "图表",
+        "FLOT": "Flot",
+        "RADIAL": "Radial"
+      },
+      "table": {
+        "TABLE": "表格",
+        "STANDARD": "标准",
+        "EXTENDED": "扩展",
+        "DATATABLE": "Datatable"
+      },
+      "map": {
+        "MAP": "地图",
+        "GOOGLE": "Google Map",
+        "VECTOR": "Vector Map"
+      },
+      "extra": {
+        "EXTRA": "扩展",
+        "MAILBOX": "邮箱",
+        "TIMELINE": "Timeline",
+        "CALENDAR": "日历",
+        "INVOICE": "Invoice",
+        "SEARCH": "搜索",
+        "TODO": "Todo List",
+        "PROFILE": "Profile"
+      },
+      "pages": {
+        "PAGES": "页面",
+        "LOGIN": "登录",
+        "REGISTER": "注册",
+        "RECOVER": "Recover password",
+        "PROFILE": "个人资料",
+        "LOCK": "Lock",
+        "STARTER": "Starter Template"
+      }
+    }
+  }
+}

@@ -1,0 +1,179 @@
+body,ul,p,h1,h2,h3,h4,dl,dd,form,input,textarea,select { padding:0; margin:0; font-family: "微软雅黑"; }
+li { list-style:none; }
+img { border:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+body{font-size: 14px; font-family: '微软雅黑';}
+html,body{
+	height: 100%;
+}
+.push{
+	height:120px;
+}
+
+#header{
+	height:30px;
+}
+
+#headerBar{
+	width: 960px;
+	margin: 0 auto;
+	margin-top: 40px;
+	position: relative;
+}
+
+#logo{
+	float: left;
+}
+
+#headerNavBar{
+	float: left;
+	width: 630px;
+}
+
+#headerNavMenu{
+	font-family: '微软雅黑';
+	display: block;
+	clear: both;
+	margin-left: 20px;
+	margin-top: 8px;
+}
+
+#headerNavMenu li{
+	float: left;
+	width: 76px;
+	height: 24px;
+	margin-right: 10px;
+}
+
+#headerNavMenu li:hover{
+	color: white;
+	background: url('/frontend/assets/img/nav_bg.png');
+}
+
+#headerNavMenu li a{
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	text-align: center;
+	height: 100%;
+	line-height: 22px;
+	font-family: "Microsoft Yahei";
+}
+
+#headerNavMenu li a:hover{
+	color: white;
+}
+
+#headerNavMenu .active {
+	color: #FFFFFF;
+}
+
+/*-----搜索------*/
+
+#search{
+	margin-top: 8px;
+	float: left;
+	margin-left: 10px;
+	width: 200px;
+}
+
+#s{
+	width: 76%;
+	height: 26px;
+	float: left;
+	font-size: 12px;
+	border: 1px solid #ccc;
+	outline: none!important;
+	padding: 0;
+	margin: 0!important;
+	border-radius: 0px;
+	padding-left: 6px;
+}
+
+#searchsubmit{
+	width: 20%;
+	height: 28px;
+	float: left;
+	border: none;
+	background:#003a74;
+	cursor: pointer;
+}
+
+#changeLang{
+	position: absolute;
+	right: 24px;
+	top:-20px;
+}
+
+/*----footer----*/
+#footer{
+	background: #D9E1E4;
+	height: 120px;
+	clear: both;
+	width: 100%;
+	bottom: 0;
+}
+
+#footerBar{
+	width: 960px;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+
+#friendLink{
+	float: left;
+	padding-top: 30px;
+}
+
+#friendLink span{
+	font-size: 18px;
+	font-weight: bold;
+	color: #828585;
+}
+
+#friendLink img{
+	margin-right: 10px;
+}
+
+
+#friendLink a img{
+  height: 40px;
+  width: 100px;
+}
+
+
+.friendLinkBlock{
+	display: inline-block;
+}
+
+.friendLinkBlock a{
+	margin-right: 10px;
+	display: inline-block;
+	width: auto;
+}
+
+#copyright{
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 8px;
+	width: 960px;
+	text-align: center;
+}
+
+#ieBody{
+	display: none;
+}
+
+#wrapper{
+	position: relative;
+	height: auto;
+	min-height: 100%;
+}
+
+.mainContent{
+	padding-bottom: 120px;
+	min-height: 600px;
+	margin-top: 20px;
+}

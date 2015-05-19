@@ -1,0 +1,47 @@
+.news-list{
+	margin-left: -44px;
+}
+
+.news-list .item{
+	margin-bottom: 30px;
+	position: relative;
+	background:url('/frontend/assets/img/blue_dot.png') left 60% no-repeat;
+	padding-left: 30px;
+}
+
+.news-list .item span{
+	position: absolute;
+	top:50%;
+}
+
+.news-list .item img{
+	float: left;
+	margin-left: 100px;
+	width: 150px;
+	height: 120px;
+}
+
+.news-list .item a{
+	float: left;
+	margin-left: 30px;
+	width: 400px;
+	line-height: 28px;
+	text-decoration: none;
+}
+
+.news-list .item a .item-title{
+	font-weight: bold;
+	font-size: 20px;
+	font-family: '微软雅黑';
+}
+
+.news-list .item .item-abstract{
+	margin-top: 20px;
+	margin-left: 30px;
+	line-height: 24px;
+	width: 400px;
+	 word-wrap:break-word;
+	height: auto;
+	color: black;
+	float: left;
+}

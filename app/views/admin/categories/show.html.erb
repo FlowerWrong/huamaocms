@@ -1,0 +1,40 @@
+<% content_for :page_title do %>
+  <%= t('form.show') %><%= t 'activerecord.models.category' %>
+<% end %>
+
+<% content_for :content_title do %>
+  <%= t('form.show') %><%= t 'activerecord.models.category' %>
+  <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+<% end %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <!-- START panel-->
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= t('form.show') %><%= t 'activerecord.models.category' %></div>
+      <div class="panel-body">
+        <table class="table table-bordered table-striped" style="clear: both" id="category">
+          <tbody>
+            <tr>
+              <td width="35%"><%= t('activerecord.attributes.category.name') %></td>
+              <td width="65%"><%= @category.name %></td>
+            </tr>
+            <tr>
+              <td width="35%"><%= t('activerecord.attributes.category.slug') %></td>
+              <td width="65%"><%= @category.slug %></td>
+            </tr>
+            <tr>
+              <td width="35%"><%= t 'form.action' %></td>
+              <td width="65%">
+                <%= link_to t('form.edit'), edit_admin_category_path(@category) %>
+                |
+                <%= link_to t('form.back'), admin_categories_path %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+     </div>
+    </div>
+    <!-- END panel-->
+  </div>
+</div>

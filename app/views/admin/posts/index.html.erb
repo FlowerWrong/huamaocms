@@ -1,0 +1,74 @@
+<% content_for :page_title do %>
+  <%= t 'activerecord.models.post' %><%= t 'form.list' %>
+<% end %>
+
+<% content_for :content_title do %>
+  <%= t 'activerecord.models.post' %><%= t 'form.list' %>
+  <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+<% end %>
+
+<% content_for :page_only_css do %>
+  <%= stylesheet_link_tag 'table', media: 'all', 'data-turbolinks-track' => true %>
+<% end %>
+
+<% content_for :page_only_js do %>
+  <%= javascript_include_tag 'table', 'data-turbolinks-track' => true %>
+<% end %>
+
+<!-- START DATATABLE CONTRAILER -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= t 'activerecord.models.post' %><%= t 'form.list' %>
+      </div>
+      <div class="panel-body">
+        <table id="datatable-contrailer" class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th><%= t 'activerecord.attributes.post.title' %></th>
+              <th><%= t 'activerecord.attributes.post.user_id' %></th>
+              <th><%= t 'activerecord.attributes.post.author' %></th>
+              <th><%= t 'activerecord.attributes.post.category_id' %></th>
+              <th><%= t 'activerecord.attributes.post.tags' %></th>
+              <th><%= t 'activerecord.attributes.post.publish_time' %></th>
+              <th><%= t 'form.action' %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @posts.each do |post| %>
+              <tr>
+                <td><%= post.title %></td>
+                <td><%= post.user.email unless post.user.nil? %></td>
+                <td><%= post.author %></td>
+                <td><%= post.category.name unless post.category.blank? %></td>
+                <td><%= post.tag_list %></td>
+                <td><%= post.publish_time %></td>
+                <td><%= link_to t('form.show'), admin_post_path(post) %> | <%= link_to t('form.edit'), edit_admin_post_path(post) %> | <%= link_to t('form.destroy'), admin_post_path(post), method: :delete, data: { confirm: t('form.are_u_sure') } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>
+                <input type="text" name="" placeholder="<%= t('form.filter') %><%= t 'activerecord.attributes.post.title' %>" class="form-control input-sm datatable_input_col_search">
+              </th>
+              <th>
+                <input type="text" name="" placeholder="<%= t('form.filter') %><%= t 'activerecord.attributes.post.user_id' %>" class="form-control input-sm datatable_input_col_search">
+              </th>
+              <th>
+                <input type="text" name="" placeholder="<%= t('form.filter') %><%= t 'activerecord.attributes.post.author' %>" class="form-control input-sm datatable_input_col_search">
+              </th>
+              <th>
+                <input type="text" name="" placeholder="<%= t('form.filter') %><%= t 'activerecord.attributes.post.publish_time' %>" class="form-control input-sm datatable_input_col_search">
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END DATATABLE CONTRAILER -->
+
+<%= link_to t('form.new'), new_admin_post_path, class: 'btn btn-info' %>

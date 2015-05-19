@@ -1,0 +1,29 @@
+.work-item{
+	display: block;
+	float: left;
+	margin-right: 63px;
+	margin-bottom: 24px;
+}
+
+.work-item img{
+	width: 170px;
+	height: 218px;
+}
+
+#itemModal h1{
+	font-family: '微软雅黑';
+	padding-left: 28px;
+	color: #0075a6;
+	background: url('/frontend/assets/img/gsjs_h1.png') left no-repeat;
+}
+
+.modal-body img.item-pic{
+	display: block;
+	margin: 0 auto;
+	width: 150px;
+	height: 150px;
+}
+
+.modal-body .item-content{
+	margin-top: 20px;
+}

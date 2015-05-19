@@ -1,0 +1,5 @@
+/app/assets/javascripts/backend/app.js
+/app/assets/javascripts/backend/modernizr.js
+/app/assets/javascripts/backend/datatable-container.js
+/app/assets/javascripts/backend/datatable-bootstrap/js/dataTables.bootstrap.js
+/app/assets/javascripts/backend/datatable-bootstrap/js/dataTables.bootstrapPagination.js

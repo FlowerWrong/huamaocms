@@ -1,0 +1,85 @@
+<% content_for :page_title do %>
+  <%= t 'activerecord.models.menu' %><%= t 'form.list' %>
+<% end %>
+
+<% content_for :content_title do %>
+  <%= t 'activerecord.models.menu' %><%= t 'form.list' %>
+  <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+<% end %>
+
+<% content_for :page_only_css do %>
+  <%= stylesheet_link_tag 'table', media: 'all', 'data-turbolinks-track' => true %>
+<% end %>
+
+<% content_for :page_only_js do %>
+  <%= javascript_include_tag 'table', 'data-turbolinks-track' => true %>
+<% end %>
+
+<!-- START DATATABLE CONTRAILER -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= t 'activerecord.models.menu' %><%= t 'form.list' %>
+      </div>
+      <div class="panel-body">
+        <table id="datatable-contrailer" class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th><%= t 'activerecord.attributes.menu.name' %></th>
+              <th><%= t 'activerecord.attributes.menu.menu_type' %></th>
+              <th><%= t 'activerecord.attributes.menu.menu_url' %></th>
+              <th><%= t 'activerecord.attributes.menu.beautify_url' %></th>
+              <th><%= t 'activerecord.attributes.menu.menu_order' %></th>
+              <th><%= t 'form.action' %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @menus.each do |menu| %>
+              <tr>
+                <td><%= menu.name %></td>
+                <td><%= menu.menu_type %></td>
+                <td><%= menu.menu_url %></td>
+                <td><%= menu.beautify_url %></td>
+                <td><%= menu.menu_order %></td>
+                <td>
+                 <%= link_to t('form.show'), admin_menu_path(menu) %>
+                 <% if menu.editable %>
+                 |
+                 <%= link_to t('form.edit'), edit_admin_menu_path(menu) %>
+                 <% end %>
+                 <% if menu.destroyable %>
+                 |
+                 <%= link_to t('form.destroy'), admin_menu_path(menu), method: :delete, data: { confirm: t('form.are_u_sure') } %>
+                 <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>
+                <input type="text" name="" placeholder="<%= t('form.filter') %><%= t 'activerecord.attributes.menu.name' %>" class="form-control input-sm datatable_input_col_search">
+              </th>
+              <th>
+                <input type="text" name="" placeholder="<%= t('form.filter') %><%= t 'activerecord.attributes.menu.menu_type' %>" class="form-control input-sm datatable_input_col_search">
+              </th>
+              <th>
+                <input type="text" name="" placeholder="<%= t('form.filter') %><%= t 'activerecord.attributes.menu.menu_url' %>" class="form-control input-sm datatable_input_col_search">
+              </th>
+              <th>
+                <input type="text" name="" placeholder="<%= t('form.filter') %><%= t 'activerecord.attributes.menu.beautify_url' %>" class="form-control input-sm datatable_input_col_search">
+              </th>
+              <th>
+                <input type="text" name="" placeholder="<%= t('form.filter') %><%= t 'activerecord.attributes.menu.menu_order' %>" class="form-control input-sm datatable_input_col_search">
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END DATATABLE CONTRAILER -->
+
+<%= link_to t('form.new'), new_admin_menu_path, class: 'btn btn-info' %>

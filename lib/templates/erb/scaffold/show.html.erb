@@ -1,0 +1,36 @@
+<%% content_for :page_title do %>
+  <%%= t('form.show') %><%%= t 'activerecord.models.<%= singular_table_name %>' %>
+<%% end %>
+
+<%% content_for :content_title do %>
+  <%%= t('form.show') %><%%= t 'activerecord.models.<%= singular_table_name %>' %>
+  <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+<%% end %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <!-- START panel-->
+    <div class="panel panel-default">
+      <div class="panel-heading"><%%= t('form.show') %><%%= t 'activerecord.models.<%= singular_table_name %>' %></div>
+      <div class="panel-body">
+        <table class="table table-bordered table-striped" style="clear: both" id="<%= singular_table_name %>">
+          <tbody>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+            <tr>
+              <td width="35%"><%%= t('activerecord.attributes.<%= singular_table_name %>.<%= attribute.column_name %>') %></td>
+              <td width="65%"><%%= @<%= singular_table_name %>.<%= attribute.column_name %> %></td>
+            </tr>
+<% end -%>
+            <tr>
+              <td width="35%"><%%= t 'form.action' %></td>
+              <td width="65%">
+                <%%= link_to t('form.edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>) %> | <%%= link_to t('form.back'), <%= index_helper %>_path %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+     </div>
+    </div>
+    <!-- END panel-->
+  </div>
+</div>

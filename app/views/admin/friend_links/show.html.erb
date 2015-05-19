@@ -1,0 +1,46 @@
+<% content_for :page_title do %>
+  <%= t('form.show') %><%= t 'activerecord.models.friend_link' %>
+<% end %>
+
+<% content_for :content_title do %>
+  <%= t('form.show') %><%= t 'activerecord.models.friend_link' %>
+  <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+<% end %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <!-- START panel-->
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= t('form.show') %><%= t 'activerecord.models.friend_link' %></div>
+      <div class="panel-body">
+        <table class="table table-bordered table-striped" style="clear: both" id="friend_link">
+          <tbody>
+            <tr>
+              <td width="35%"><%= t('activerecord.attributes.friend_link.name') %></td>
+              <td width="65%"><%= @friend_link.name %></td>
+            </tr>
+            <tr>
+              <td width="35%"><%= t('activerecord.attributes.friend_link.f_url') %></td>
+              <td width="65%"><%= @friend_link.f_url %></td>
+            </tr>
+            <tr>
+              <td width="35%"><%= t('activerecord.attributes.friend_link.f_logo') %></td>
+              <td width="65%"><%= image_tag(@friend_link.f_logo_url, width: '72', height: '72') if @friend_link.f_logo? %></td>
+            </tr>
+            <tr>
+              <td width="35%"><%= t('activerecord.attributes.friend_link.f_group_id') %></td>
+              <td width="65%"><%= @friend_link.f_group_id %></td>
+            </tr>
+            <tr>
+              <td width="35%"><%= t 'form.action' %></td>
+              <td width="65%">
+                <%= link_to t('form.edit'), edit_admin_friend_link_path(@friend_link) %> | <%= link_to t('form.back'), admin_friend_links_path %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+     </div>
+    </div>
+    <!-- END panel-->
+  </div>
+</div>

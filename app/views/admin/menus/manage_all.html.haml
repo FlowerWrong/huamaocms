@@ -1,0 +1,20 @@
+
+= content_for :page_title do
+  = t('form.edit')
+  = t('activerecord.models.menu')
+
+= content_for :content_title do
+  = t 'form.edit'
+  = t 'activerecord.models.menu'
+  <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+
+= content_for :page_only_css do
+  = stylesheet_link_tag 'sortable'
+
+= content_for :page_only_js do
+  = javascript_include_tag 'sortable'
+
+Count: #{ @menus.to_a.count }
+
+%ol.sortable_tree{ data: { rebuild_url: rebuild_admin_menus_url } }
+  = sortable_tree @menus, namespace: :admin

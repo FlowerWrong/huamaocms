@@ -1,0 +1,23 @@
+<%% content_for :page_title do %>
+  <%%= t 'form.edit' %><%%= t 'activerecord.models.<%= singular_table_name %>' %>
+<%% end %>
+
+<%% content_for :content_title do %>
+  <%%= t 'form.edit' %><%%= t 'activerecord.models.<%= singular_table_name %>' %>
+  <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+<%% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <!-- START panel-->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title"><%%= t('form.edit') %><%%= t('activerecord.models.<%= singular_table_name %>') %></div>
+      </div>
+      <div class="panel-body">
+        <%%= render 'form' %>
+      </div>
+    </div>
+    <!-- END panel-->
+  </div>
+</div>

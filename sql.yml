@@ -1,0 +1,97 @@
+user:
+  name: yang
+
+role:
+  name: admin
+
+page_part:
+  page_id
+  title
+  body
+  position
+
+page:  # cms静态页面, 无限极分类形式
+  parent_id
+  path
+  slug
+  custom_slug
+  show_in_menu: default => true
+  link_url
+  menu_match
+  deletable,           :default => true
+  draft,               :default => false
+  skip_to_first_child, :default => false
+  lft
+  rgt
+  depth
+  view_template: 内容母板
+  layout_template: 布局母板
+
+image_page:  # 静态页面图片
+  image_id
+  page_id
+  position
+  caption
+
+post:  # cms新闻
+  title:string
+  summary:text
+  content:text
+  user_id:integer
+  author:string
+  img:string
+  publish_time:date
+  stick:boolean 置顶
+  can_comment: boolean
+  is_recommend: boolean
+  is_published: boolean 草稿
+
+comment:
+post_comment:
+category:
+  name: name
+  slug: slug
+post_category:
+tag:
+
+setting:  # cms配置
+  slug
+  config_key
+  config_value
+  destroyable: boolean
+  editable: boolean
+  # scoping: 作用域
+  # config_key_type
+
+image:  # cms 图片
+  image_mime_type:
+  image_name:
+  image_size:
+  image_width:
+  image_height:
+  image_uid:
+  image_ext:
+  image_title:
+  image_alt:
+
+resource:
+  file_mime_type
+  file_name
+  file_size
+  file_uid
+  file_ext
+
+menu:
+  name:
+  menu_type:
+  menu_url:
+  menu_order: integer
+  beautify_url: string
+  editable: boolean
+  destroyable: boolean
+
+friendlink:
+  name:string
+  f_url:string
+  group_id:integer
+  f_logo:string

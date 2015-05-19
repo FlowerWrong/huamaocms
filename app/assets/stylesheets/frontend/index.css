@@ -1,0 +1,108 @@
+/*-----main----*/
+#mainBlock{
+	clear: both;
+	width: 960px;
+	margin: 0 auto -80px;
+	margin-top: 30px;
+	margin-bottom: 50px;
+	min-height: 70%;
+	height: auto !important;
+	height: 100%;
+}
+.push{
+	height: 20px!important;
+}
+
+.mainContentBlock{
+	width: 248px;
+	float: left;
+	margin-right: 90px;
+}
+
+.mainContentHeaderBar{
+	color: #828585;
+	position: relative;
+}
+
+.mainContentHeaderBar h1{
+	display: inline-block;
+	font-size: 16px;
+	font-family: '微软雅黑';
+}
+
+.mainContentHeaderBar h1 span{
+	color: #428db7;
+}
+
+.mainContentHeaderBar a{
+	position: absolute;
+	right: 0;
+	top: 8px;
+}
+
+.firstNews{
+	margin-top: 20px;
+}
+
+.firstNews img{
+	width: 80px;
+	height: 80px;
+}
+
+.firstNews a{
+	width: 120px;
+	height: 68px;
+	float: right;
+}
+
+.newsList{
+	margin: 0;
+	margin-top: 20px;
+}
+.newsList li{
+	margin-top:8px;
+	line-height: 24px;
+	height: 24px;
+	border-bottom: 1px dashed #ccc;
+	background: url('/frontend/assets/img/newsDot.png') left no-repeat;
+	padding-left: 12px;
+}
+.newsList li span.newsDate{
+	float: right;
+}
+
+#itemshowContentBlock .item{
+	margin-top: 20px;
+}
+
+#itemshowContentBlock img{
+	width: 80px;
+	height: 80px;
+}
+
+#itemshowContentBlock .item a{
+	width: 160px;
+	float: right;
+}
+
+.mainContentBlockLast{
+	margin-right: 0;
+}
+#contactBlock{
+	width: 282px;
+}
+
+#contactBlock .contactInfoBlock{
+	margin-top: 30px;
+}
+#contactBlock .contactInfoBlock .contactInfo{
+	margin-top: 10px;
+	width: 282px;
+	line-height: 200%;
+}
+
+
+/*----slider-----*/
+#slider{
+	margin:0 auto;
+}

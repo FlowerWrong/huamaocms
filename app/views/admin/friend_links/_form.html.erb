@@ -1,0 +1,64 @@
+<%= form_for([:admin, @friend_link], class: 'form-horizontal') do |f| %>
+  <% if @friend_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@friend_link.errors.count, "error") %> prohibited this friend_link from being saved:</h2>
+      <ul>
+      <% @friend_link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :name, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.friend_link.name') %>
+        <span class="symbol required">*</span>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.text_field :name, required: 'required', class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :f_url, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.friend_link.f_url') %>
+        <span class="symbol required">*</span>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.text_field :f_url, required: 'required', class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :f_logo, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.friend_link.f_logo') %>
+      <% end %>
+      <div class="col-sm-10">
+      <% if @friend_link.f_logo? %>
+        <%= image_tag(@friend_link.f_logo_url, width: 72, height: 72) %>
+        <p></p>
+      <% else %>
+        <p class="help-block">请上传特色图片</p>
+      <% end %>
+      <%= f.file_field :f_logo %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :f_group_id, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.friend_link.f_group_id') %>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.select(:f_group_id, options_for_select([['第一组', 1], ['第二组', 2], ['第三组', 3], ['第四组', 4], ['第五组', 5], ['第六组', 6]])) %>
+      </div>
+    </div>
+  </fieldset>
+  <div class="panel-footer text-center">
+    <%= f.submit t('form.submit'), class: 'btn btn-info submit-form' %>
+    <%= link_to t('form.back'), admin_friend_links_path, class: 'btn btn-info back' %>
+  </div>
+<% end %>

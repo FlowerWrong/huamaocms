@@ -1,0 +1,42 @@
+<% content_for :page_title do %>
+  搜索结果
+<% end %>
+
+<style type="text/css">
+.content {
+  width: 100%;
+  border: none;
+}
+.content #crumbs {
+  top: 5px;
+}
+.contentBody {
+  margin: 0;
+  width: 100%;
+}
+</style>
+<div id = "main">
+  <hr>
+
+  <div class="content">
+    <h1 class="content-title">搜索结果</h1>
+    <div id="crumbs"><span>搜索结果</span></div>
+    <hr>
+    <div class = "contentBody">
+      <div class = "search-result-list">
+        <% @posts.each do |item| %>
+            <div class = "item">
+              <a href="/posts/<%= item.id %>" data-no-turbolink>
+                <div class="item-title" style="font-size: 14px;"><%= item.title %></div>
+              </a>
+              <div style="clear:both;"></div>
+            </div>
+        <% end %>
+      </div>
+      <div class="pagination">
+        <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

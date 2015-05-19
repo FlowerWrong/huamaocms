@@ -1,0 +1,71 @@
+<%= form_for([:admin, @menu], html: { multipart: true }, class: 'form-horizontal') do |f| %>
+  <% if @menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+      <ul>
+      <% @menu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :name, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.menu.name') %>
+        <span class="symbol required">*</span>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.text_field :name, required: 'required', class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :menu_type, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.menu.menu_type') %>
+        <span class="symbol required">*</span>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.select :menu_type, options_for_select(Menu.types, @menu.menu_type) %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :menu_url, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.menu.menu_url') %>
+        <span class="symbol required">*</span>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.text_field :menu_url, required: 'required', class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :beautify_url, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.menu.beautify_url') %>
+        <span class="symbol required">*</span>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.text_field :beautify_url, required: 'required', class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :menu_order, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.menu.menu_order') %>
+        <span class="symbol required">*</span>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.number_field :menu_order, required: 'required', class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+  <div class="panel-footer text-center">
+    <%= f.submit t('form.submit'), class: 'btn btn-info' %>
+    <%= link_to t('form.back'), admin_menus_path, class: 'btn btn-info' %>
+  </div>
+<% end %>

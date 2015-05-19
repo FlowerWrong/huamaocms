@@ -1,0 +1,54 @@
+<% content_for :page_title do %>
+  <%= t('form.show') %><%= t 'activerecord.models.setting' %>
+<% end %>
+
+<% content_for :content_title do %>
+  <%= t('form.show') %><%= t 'activerecord.models.setting' %>
+  <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+<% end %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <!-- START panel-->
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= t('form.show') %><%= t 'activerecord.models.setting' %></div>
+      <div class="panel-body">
+        <table class="table table-bordered table-striped" style="clear: both" id="setting">
+          <tbody>
+            <tr>
+              <td width="35%"><%= t('activerecord.attributes.setting.slug') %></td>
+              <td width="65%"><%= @setting.slug %></td>
+            </tr>
+            <tr>
+              <td width="35%"><%= t('activerecord.attributes.setting.config_key') %></td>
+              <td width="65%"><%= @setting.config_key %></td>
+            </tr>
+            <tr>
+              <td width="35%"><%= t('activerecord.attributes.setting.config_value') %></td>
+              <td width="65%"><%= @setting.config_value %></td>
+            </tr>
+            <tr>
+              <td width="35%"><%= t('activerecord.attributes.setting.destroyable') %></td>
+              <td width="65%"><%= @setting.destroyable %></td>
+            </tr>
+            <tr>
+              <td width="35%"><%= t('activerecord.attributes.setting.editable') %></td>
+              <td width="65%"><%= @setting.editable %></td>
+            </tr>
+            <tr>
+              <td width="35%"><%= t 'form.action' %></td>
+              <td width="65%">
+                <% if @setting.editable %>
+                <%= link_to t('form.edit'), edit_admin_setting_path(@setting) %>
+                |
+                <% end %>
+                <%= link_to t('form.back'), admin_settings_path %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+     </div>
+    </div>
+    <!-- END panel-->
+  </div>
+</div>
