@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 Dotenv::Railtie.load
 
-module Base
+module Huamaocms
   class Application < Rails::Application
 
     config.generators do |g|
