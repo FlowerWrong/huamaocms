@@ -55,8 +55,16 @@ $(document).on "page:change", ->
 6. [Automated Rails testing with Capybara and PhantomJS](http://mikec.me/posts/11)
 7. [cucumber-capybara-poltergeist-rockstar-bdd-combo](http://shashikantjagtap.net/cucumber-capybara-poltergeist-rockstar-bdd-combo/)
 
+
 #### backup
 
 ```ruby
 
 ```
+
+### [Rails deploy
+tips](https://medium.com/@rdsubhas/ruby-in-production-lessons-learned-36d7ab726d99)
+
+* Use nodejs+execjs for asset compilation, instead of
+  therubyracer+libv8.
+* Make sure /etc/gemrc contains `gem: --no-ri --no-rdoc`
