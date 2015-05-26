@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20150526082618) do
     t.string   "name",            limit: 255
     t.string   "menu_type",       limit: 255
     t.string   "menu_url",        limit: 255
-    t.integer  "menu_order",      limit: 4
+    t.integer  "menu_order",      limit: 4,   default: 0,    null: false
     t.integer  "parent_id",       limit: 4
     t.integer  "lft",             limit: 4,                  null: false
     t.integer  "rgt",             limit: 4,                  null: false

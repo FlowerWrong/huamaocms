@@ -80,6 +80,6 @@ class Admin::MenusController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:name, :menu_type, :menu_url, :menu_order, :beautify_url, :view_template, :layout_template)
+      params.require(:menu).permit(:name, :menu_type, :menu_url, :beautify_url, :view_template, :layout_template)
     end
 end

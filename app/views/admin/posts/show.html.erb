@@ -27,10 +27,6 @@
               <td width="65%"><%= @post.title %></td>
             </tr>
             <tr>
-              <td width="35%"><%= t('activerecord.attributes.post.summary') %></td>
-              <td width="65%"><%= @post.summary %></td>
-            </tr>
-            <tr>
               <td width="35%"><%= t('activerecord.attributes.post.category_id') %></td>
               <td width="65%"><%= @post.category.name unless @post.category.blank? %></td>
             </tr>
@@ -47,29 +43,10 @@
               <td width="65%"><%= image_tag(@post.img_url, width: '72', height: '72') if @post.img? %></td>
             </tr>
             <tr>
-              <td width="35%"><%= t('activerecord.attributes.post.tags') %></td>
-              <td width="65%"><%= @post.tag_list %></td>
-            </tr>
-            <tr>
               <td width="35%"><%= t('activerecord.attributes.post.publish_time') %></td>
               <td width="65%"><%= @post.publish_time %></td>
             </tr>
             <tr>
-              <td width="35%"><%= t('activerecord.attributes.post.stick') %></td>
-              <td width="65%"><%= @post.stick %></td>
-            </tr>
-            <tr>
-              <td width="35%"><%= t('activerecord.attributes.post.can_comment') %></td>
-              <td width="65%"><%= @post.can_comment %></td>
-            </tr>
-            <tr>
-              <td width="35%"><%= t('activerecord.attributes.post.is_recommend') %></td>
-              <td width="65%"><%= @post.is_recommend %></td>
-            </tr>
-            <tr>
-              <td width="35%"><%= t('activerecord.attributes.post.is_published') %></td>
-              <td width="65%"><%= @post.is_published %></td>
-            </tr>
               <td width="35%"><%= t('activerecord.attributes.post.content') %></td>
               <td width="65%"><%=raw @post.content %></td>
             </tr>

@@ -157,10 +157,10 @@ Setting.create!(
 1.upto(50).each do |i|
   Post.create!(
     title: "title#{i}",
-    summary: "summary#{i}",
     content: "content#{i}",
     user_id: 1,
     author: '杨浮生',
+    category_id: (rand(10) + 1),
     publish_time: Time.now
   )
 end

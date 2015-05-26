@@ -7,6 +7,6 @@ class Post < ActiveRecord::Base
 
   belongs_to :category, dependent: :destroy
 
-  acts_as_taggable
-  acts_as_imageable
+  # acts_as_taggable
+  # acts_as_imageable
 end

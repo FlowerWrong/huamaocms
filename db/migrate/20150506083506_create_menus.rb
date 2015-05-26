@@ -4,7 +4,7 @@ class CreateMenus < ActiveRecord::Migration
       t.string :name
       t.string :menu_type
       t.string :menu_url
-      t.integer :menu_order
+      t.integer :menu_order, :null => false, :default => 0
 
       t.integer :parent_id, :null => true, :index => true
       t.integer :lft, :null => false, :index => true

@@ -1,10 +1,4 @@
-<% content_for :page_only_css do %>
-  <%= stylesheet_link_tag 'tags', media: 'all', 'data-turbolinks-track' => true %>
-<% end %>
-
 <% content_for :page_only_js do %>
-  <%= javascript_include_tag 'tags', 'data-turbolinks-track' => true %>
-
 <script src="/plugins/ueditor/ueditor.config.js"></script>
 <script src="/plugins/ueditor/ueditor.all.min.js"></script>
 <script src="/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
@@ -38,16 +32,6 @@ $(document).ready(function(){
       <% end %>
       <div class="col-sm-10">
       <%= f.text_field :title, required: 'required', class: 'form-control' %>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
-    <div class="form-group">
-      <%= f.label :summary, class: 'col-sm-2 control-label' do %>
-        <%= t('activerecord.attributes.post.summary') %>
-      <% end %>
-      <div class="col-sm-10">
-      <%= f.text_area :summary, class: 'form-control' %>
       </div>
     </div>
   </fieldset>
@@ -100,16 +84,6 @@ $(document).ready(function(){
   </fieldset>
   <fieldset>
     <div class="form-group">
-      <%= f.label :tags, class: 'col-sm-2 control-label' do %>
-        <%= t('activerecord.attributes.post.tags') %>
-      <% end %>
-      <div class="col-sm-10">
-        <%= f.text_field :tag_list, 'data-role'=>'tagsinput' %>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
-    <div class="form-group">
       <%= f.label :publish_time, class: 'col-sm-2 control-label' do %>
         <%= t('activerecord.attributes.post.publish_time') %>
       <% end %>
@@ -118,46 +92,7 @@ $(document).ready(function(){
       </div>
     </div>
   </fieldset>
-  <fieldset>
-    <div class="form-group">
-      <%= f.label :stick, class: 'col-sm-2 control-label' do %>
-        <%= t('activerecord.attributes.post.stick') %>
-      <% end %>
-      <div class="col-sm-10">
-      <%= f.check_box :stick, class: 'form-control' %>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
-    <div class="form-group">
-      <%= f.label :can_comment, class: 'col-sm-2 control-label' do %>
-        <%= t('activerecord.attributes.post.can_comment') %>
-      <% end %>
-      <div class="col-sm-10">
-      <%= f.check_box :can_comment, class: 'form-control' %>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
-    <div class="form-group">
-      <%= f.label :is_recommend, class: 'col-sm-2 control-label' do %>
-        <%= t('activerecord.attributes.post.is_recommend') %>
-      <% end %>
-      <div class="col-sm-10">
-      <%= f.check_box :is_recommend, class: 'form-control' %>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
-    <div class="form-group">
-      <%= f.label :is_published, class: 'col-sm-2 control-label' do %>
-        <%= t('activerecord.attributes.post.is_published') %>
-      <% end %>
-      <div class="col-sm-10">
-      <%= f.check_box :is_published, class: 'form-control' %>
-      </div>
-    </div>
-  </fieldset>
+
   <div class="panel-footer text-center">
     <%= f.submit t('form.submit'), class: 'btn btn-info submit-form' %>
     <%= link_to t('form.back'), admin_posts_path, class: 'btn btn-info' %>
