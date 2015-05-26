@@ -6,38 +6,50 @@ time_start = Time.now
 root1 = Menu.create!(
   name: '菜单1',
   menu_url: '/posts/1',
-  menu_type: :main
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site
 )
 root2 = Menu.create!(
   name: '菜单2',
   menu_url: '/posts/2',
   menu_type: :main,
-  beautify_url: 'about'
+  beautify_url: 'about',
+  view_template: :main,
+  layout_template: :site
 )
 root3 = Menu.create!(
   name: '菜单3',
   menu_url: '/posts/3',
-  menu_type: :main
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site
 )
 
 child1 = Menu.create!(
   name: '菜单1-1',
   menu_url: '/posts/1-1',
-  menu_type: :main
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site
 )
 child1.move_to_child_of root1
 
 child2 = Menu.create!(
   name: '菜单1-2',
   menu_url: '/posts/1-2',
-  menu_type: :main
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site
 )
 child2.move_to_child_of root1
 
 child3 = Menu.create!(
   name: '菜单1-3',
   menu_url: '/posts/1-3',
-  menu_type: :main
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site
 )
 child3.move_to_child_of root1
 # ------------------------------------------

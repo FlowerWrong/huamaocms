@@ -23,7 +23,7 @@ RSpec.describe Menu, type: :model do
   end
 
   it 'is invalid with a duplicate menu name' do
-    m1 = Menu.create(name: 'menu1', menu_url: FFaker::Internet.http_url, menu_type: FFaker::Name.name)
+    Menu.create(name: 'menu1', menu_url: FFaker::Internet.http_url, menu_type: FFaker::Name.name)
     m2 = Menu.new(name: 'menu1', menu_url: FFaker::Internet.http_url, menu_type: FFaker::Name.name)
     m2.valid?
     expect(m2.errors[:name]).to include('已经被使用')
@@ -52,4 +52,9 @@ RSpec.describe Menu, type: :model do
   it "return an array of [:main, :rgt_side_bar, :lft_side_bar] with method Menu.types" do
     expect(Menu.types).to eq([:main, :rgt_side_bar, :lft_side_bar])
   end
+
+  it "return an array of [:main, :cat, :post, :aboutus, :hr] with method Menu.view_templates" do
+    expect(Menu.view_templates).to eq([:main, :cat, :post, :aboutus, :hr])
+  end
+
 end

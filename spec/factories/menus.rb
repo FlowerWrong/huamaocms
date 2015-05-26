@@ -12,6 +12,8 @@ FactoryGirl.define do
     menu_type FFaker::Name.name
     menu_url FFaker::Internet.http_url
     menu_order 1
+    view_template :main
+    layout_template :site
 
     factory :invalid_name_menu do
       name nil

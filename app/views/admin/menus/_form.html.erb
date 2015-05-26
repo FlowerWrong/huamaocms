@@ -33,11 +33,21 @@
   </fieldset>
   <fieldset>
     <div class="form-group">
-      <%= f.label :template, class: 'col-sm-2 control-label' do %>
-        <%= t('activerecord.attributes.menu.template') %>
+      <%= f.label :view_template, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.menu.view_template') %>
       <% end %>
       <div class="col-sm-10">
-      <%= f.select :template, options_for_select(Menu.templates, @menu.template) %>
+      <%= f.select :view_template, options_for_select(Menu.view_templates, @menu.view_template) %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :layout_template, class: 'col-sm-2 control-label' do %>
+        <%= t('activerecord.attributes.menu.layout_template') %>
+      <% end %>
+      <div class="col-sm-10">
+      <%= f.select :layout_template, options_for_select(Menu.layout_templates, @menu.layout_template) %>
       </div>
     </div>
   </fieldset>

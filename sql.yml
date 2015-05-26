@@ -89,6 +89,8 @@ menu:
   beautify_url: string
   editable: boolean
   destroyable: boolean
+  view_template: 内容母板
+  layout_template: 布局母板
 
 friendlink:
   name:string

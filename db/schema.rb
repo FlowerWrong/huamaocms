@@ -56,21 +56,22 @@ ActiveRecord::Schema.define(version: 20150526082618) do
   add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type", using: :btree
 
   create_table "menus", force: :cascade do |t|
-    t.string   "name",           limit: 255
-    t.string   "menu_type",      limit: 255
-    t.string   "menu_url",       limit: 255
-    t.integer  "menu_order",     limit: 4
-    t.integer  "parent_id",      limit: 4
-    t.integer  "lft",            limit: 4,                  null: false
-    t.integer  "rgt",            limit: 4,                  null: false
-    t.integer  "depth",          limit: 4,   default: 0,    null: false
-    t.integer  "children_count", limit: 4,   default: 0,    null: false
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
-    t.string   "beautify_url",   limit: 255
-    t.boolean  "editable",       limit: 1,   default: true
-    t.boolean  "destroyable",    limit: 1,   default: true
-    t.string   "temlate",        limit: 255
+    t.string   "name",            limit: 255
+    t.string   "menu_type",       limit: 255
+    t.string   "menu_url",        limit: 255
+    t.integer  "menu_order",      limit: 4
+    t.integer  "parent_id",       limit: 4
+    t.integer  "lft",             limit: 4,                  null: false
+    t.integer  "rgt",             limit: 4,                  null: false
+    t.integer  "depth",           limit: 4,   default: 0,    null: false
+    t.integer  "children_count",  limit: 4,   default: 0,    null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "beautify_url",    limit: 255
+    t.boolean  "editable",        limit: 1,   default: true
+    t.boolean  "destroyable",     limit: 1,   default: true
+    t.string   "view_template",   limit: 255
+    t.string   "layout_template", limit: 255
   end
 
   add_index "menus", ["lft"], name: "index_menus_on_lft", using: :btree

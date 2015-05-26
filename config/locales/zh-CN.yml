@@ -47,7 +47,8 @@ zh-CN:
         destroyable: 可删除
         parent_id: 父菜单
         depth: 深度
-        template: 模板
+        view_template: 页面模板
+        layout_template: 布局模板
 
       category:
         name: 名称

@@ -14,8 +14,12 @@ class Menu < ActiveRecord::Base
       [:main, :rgt_side_bar, :lft_side_bar]
     end
 
-    def templates
+    def view_templates
       [:main, :cat, :post, :aboutus, :hr]
+    end
+
+    def layout_templates
+      [:site]
     end
   end
 end
