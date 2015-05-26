@@ -39,6 +39,7 @@ zh-CN:
 
       menu:
         name: 菜单名称
+        enname: 英文名称
         menu_type: 类型
         menu_url: 链接
         menu_order: 排序

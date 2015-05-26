@@ -9,6 +9,7 @@ require 'ffaker'
 FactoryGirl.define do
   factory :menu do
     name FFaker::Name.name
+    enname FFaker::Name.name
     menu_type FFaker::Name.name
     menu_url FFaker::Internet.http_url
     menu_order 1
