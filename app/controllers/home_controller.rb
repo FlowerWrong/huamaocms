@@ -1,4 +1,5 @@
 require 'will_paginate/array'
+
 class HomeController < SiteController
   layout 'site'
 

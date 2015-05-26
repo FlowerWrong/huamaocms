@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518151204) do
+ActiveRecord::Schema.define(version: 20150526082618) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150518151204) do
     t.string   "beautify_url",   limit: 255
     t.boolean  "editable",       limit: 1,   default: true
     t.boolean  "destroyable",    limit: 1,   default: true
+    t.string   "temlate",        limit: 255
   end
 
   add_index "menus", ["lft"], name: "index_menus_on_lft", using: :btree

@@ -1,5 +1,10 @@
 ## Readme
 
+#### Need to do
+
+* Add differnet to menu or category or post(menu?)
+
+
 #### Start
 
 ```ruby

@@ -13,5 +13,9 @@ class Menu < ActiveRecord::Base
     def types
       [:main, :rgt_side_bar, :lft_side_bar]
     end
+
+    def templates
+      [:main, :cat, :post, :aboutus, :hr]
+    end
   end
 end
