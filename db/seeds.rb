@@ -3,8 +3,25 @@ puts 'start seeds'
 time_start = Time.now
 
 # ------------------------------------------
+Menu.create!(
+  name: '首页',
+  menu_url: '/',
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site
+)
+
+Menu.create!(
+  name: '华贸商城',
+  menu_url: '/huamao',
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site
+)
+
 root1 = Menu.create!(
   name: '公司介绍',
+  enname: 'COMPANY INTRODUCTION',
   menu_url: '/categories/1',
   menu_type: :main,
   view_template: :main,
@@ -12,6 +29,7 @@ root1 = Menu.create!(
 )
 root2 = Menu.create!(
   name: '新闻中心',
+  enname: 'NEWS CENTER',
   menu_url: '/categories/2',
   menu_type: :main,
   beautify_url: 'about',
@@ -20,6 +38,7 @@ root2 = Menu.create!(
 )
 root3 = Menu.create!(
   name: '加入我们',
+  enname: 'JOIN US',
   menu_url: '/posts/1',
   menu_type: :main,
   view_template: :main,
@@ -27,6 +46,7 @@ root3 = Menu.create!(
 )
 root4 = Menu.create!(
   name: '联系我们',
+  enname: 'CONTACT US',
   menu_url: '/posts/2',
   menu_type: :main,
   view_template: :main,
@@ -115,20 +135,15 @@ normal_user.add_role :normal
 # ------------------------------------------
 
 cats = [
-  {name: '公司介绍', slug: '公司介绍'},
-  {name: '新闻中心', slug: '新闻中心'}
-]
-
-children_of_1 = [
-  {name: '企业文化', slug: '企业文化'},
-  {name: '业务范围', slug: '业务范围'},
-  {name: '发展规划', slug: '发展规划'}
+  { name: '公司介绍', slug: '公司介绍' },
+  { name: '新闻中心', slug: '新闻中心' },
+  { name: '薰衣草堂', slug: '薰衣草堂' }
 ]
 
 children_of_2 = [
-  {name: '公司动态', slug: '公司动态'},
-  {name: '活动专题', slug: '兼职'},
-  {name: '媒体资讯', slug: '媒体资讯'}
+  { name: '公司动态', slug: '公司动态' },
+  { name: '活动专题', slug: '兼职' },
+  { name: '媒体资讯', slug: '媒体资讯' }
 ]
 
 root_cat_1 = Category.new(cats[0])
@@ -137,11 +152,8 @@ root_cat_1.save!
 root_cat_2 = Category.new(cats[1])
 root_cat_2.save!
 
-children_of_1.each do |cat|
-  child = Category.new(cat)
-  child.save!
-  child.move_to_child_of root_cat_1
-end
+root_cat_3 = Category.new(cats[2])
+root_cat_3.save!
 
 children_of_2.each do |cat|
   child = Category.new(cat)
@@ -154,9 +166,49 @@ end
 # ------------------------------------------
 
 Setting.create!(
-  slug: 'logo',
-  config_key: 'logo',
-  config_value: '/angle/app/img/logo.png',
+  slug: '联系电话',
+  config_key: 'phone',
+  config_value: '13560474456',
+  destroyable: false,
+  editable: true
+)
+
+Setting.create!(
+  slug: '联系人',
+  config_key: 'contact',
+  config_value: '林小姐',
+  destroyable: false,
+  editable: true
+)
+
+Setting.create!(
+  slug: '传真',
+  config_key: 'fix',
+  config_value: '51000',
+  destroyable: false,
+  editable: true
+)
+
+Setting.create!(
+  slug: '电子邮箱',
+  config_key: 'company_email',
+  config_value: 'lin@gmail.com',
+  destroyable: false,
+  editable: true
+)
+
+Setting.create!(
+  slug: '公司网址',
+  config_key: 'company_url',
+  config_value: 'thecampus.cc',
+  destroyable: false,
+  editable: true
+)
+
+Setting.create!(
+  slug: '公司地址',
+  config_key: 'company_address',
+  config_value: '广州市番禺区五洲城B座518',
   destroyable: false,
   editable: true
 )

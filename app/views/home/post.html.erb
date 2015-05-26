@@ -4,5 +4,30 @@
 
 <div id="main">
   <hr>
-  <%= raw @post.content %>
+  <div class="mainBlock">
+    <div class="menu">
+      <h1 style="font-size: 16px; letter-spacing: 8px; line-height: 30px;"><a href="<%= @parent_menu.m_url %>"><%= @parent_menu.name %></a></h1>
+
+      <h3 style="font-size: 10px; line-height: 20px; letter-spacing: 2px;"><%= @parent_menu.enname %></h3>
+      <% if @menu_children != [] %>
+          <div class="nav">
+            <hr>
+            <ul>
+              <% @menu_children.each do |mc| %>
+                  <li><a href="<%= mc.m_url %>" data-no-turbolink><%= mc.name %></a></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+    </div>
+    <div class="content">
+      <h1 class="content-title" style="font-size: 14px;"><%= @post.title %></h1>
+
+      <div id="crumbs"><a href="/" data-no-turbolink>首页</a> > <a href="<%= @parent_menu.m_url %>" data-no-turbolink><%= @parent_menu.name %></a></div>
+      <hr>
+      <div class="contentBody">
+        <%= raw @post.content %>
+      </div>
+    </div>
+  </div>
 </div>

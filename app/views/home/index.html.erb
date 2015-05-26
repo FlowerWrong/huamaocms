@@ -2,12 +2,81 @@
   主页
 <% end %>
 
-<h1>Welcome to my world!</h1>
+<div id="main">
+  <div id="slider">
+    <a href="<%= @data['banner_one']['redirect_to'] %>">
+      <img src="<%= @data['banner_one']['image_url'] %>" width="1024px" height="352px">
+    </a>
+    <a href="<%= @data['banner_two']['redirect_to'] %>">
+      <img src="<%= @data['banner_two']['image_url'] %>" width="1024px" height="352px">
+    </a>
+    <a href="<%= @data['banner_three']['redirect_to'] %>">
+      <img src="<%= @data['banner_three']['image_url'] %>" width="1024px" height="352px">
+    </a>
+  </div>
+  <div id="mainBlock">
+    <div class="mainContentBlock" id="newsContentBlock">
+      <div class="mainContentHeaderBar">
+        <h1><span>新闻中心/ </span>NEWS CENTER</h1>
+        <a href="/cat/1/posts" data-no-turbolink>更多>></a>
+      </div>
 
-<div class="posts">
-<ul>
-  <% @posts.each do |p| %>
-  <li><a href="/posts/<%= p.id %>"><%= p.title %></a></li>
-  <% end %>
-</ul>
+      <ul class="newsList">
+        <% @news_center.each do |item| %>
+          <li class="newsListItem">
+            <a href="/posts/<%= item.id %>">
+              <span><%= truncate(item.title, :length => 16, :omission => '……') %></span>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="mainContentBlock" id="itemshowContentBlock">
+      <div class="mainContentHeaderBar">
+        <h1><span>薰衣草堂/ </span>LIVENDES</h1>
+        <a href="/cat/3/posts" data-no-turbolink>更多>></a>
+      </div>
+      <ul class="newsList">
+        <% @xunyicaotang.each do |item| %>
+          <li class="newsListItem">
+            <a href="/posts/<%= item.id %>">
+              <span><%= truncate(item.title, :length => 16, :omission => '……') %></span>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="mainContentBlock mainContentBlockLast" id="contactBlock">
+      <div class="mainContentHeaderBar">
+        <h1><span>联系我们/ </span>CONTACT</h1>
+      </div>
+      <div class="contactInfoBlock">
+        <img src="/frontend/assets/img/xinfeng.png">
+        <div class="contactInfo">
+          联系电话：<%= Setting.where(:config_key => "phone").first.config_value %>
+          <br>
+          联系人：<%= Setting.where(:config_key => "contact").first.config_value %>
+          <br>
+          传真：<%= Setting.where(:config_key => "fix").first.config_value %>
+          <br>
+          电子邮箱：<%= Setting.where(:config_key => "company_email").first.config_value %>
+          <br>
+        </div>
+        <div style="clear:both"></div>
+      </div>
+      <div class="contactInfoBlock">
+        <div style="clear:both"></div>
+        <img src="/frontend/assets/img/bianqian.png">
+
+        <div class="contactInfo">
+          公司网址：<%= Setting.where(:config_key => "company_url").first.config_value %>
+          <br>
+          公司地址：<%= Setting.where(:config_key => "company_address").first.config_value %>
+          <br>
+        </div>
+        <div style="clear:both"></div>
+      </div>
+    </div>
+    <div class="push" style="clear:both"></div>
+  </div>
 </div>
