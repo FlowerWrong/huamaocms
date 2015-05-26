@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.1'
 gem 'mysql2'
 
@@ -31,7 +30,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'acts-as-taggable-on', '~> 3.4'
-
 gem 'acts_as_imageable', github: 'FlowerWrong/acts_as_imageable', branch: 'master'
 
 gem 'will_paginate', '~> 3.0'
