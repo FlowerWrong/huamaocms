@@ -4,30 +4,38 @@ time_start = Time.now
 
 # ------------------------------------------
 root1 = Menu.create!(
-  name: '菜单1',
-  menu_url: '/posts/1',
+  name: '公司介绍',
+  menu_url: '/categories/1',
   menu_type: :main,
   view_template: :main,
   layout_template: :site
 )
 root2 = Menu.create!(
-  name: '菜单2',
-  menu_url: '/posts/2',
+  name: '新闻中心',
+  menu_url: '/categories/2',
   menu_type: :main,
   beautify_url: 'about',
   view_template: :main,
   layout_template: :site
 )
 root3 = Menu.create!(
-  name: '菜单3',
-  menu_url: '/posts/3',
+  name: '加入我们',
+  menu_url: '/posts/1',
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site
+)
+root4 = Menu.create!(
+  name: '联系我们',
+  menu_url: '/posts/2',
   menu_type: :main,
   view_template: :main,
   layout_template: :site
 )
 
+# 公司简介子菜单
 child1 = Menu.create!(
-  name: '菜单1-1',
+  name: '企业文化',
   menu_url: '/posts/1-1',
   menu_type: :main,
   view_template: :main,
@@ -36,7 +44,7 @@ child1 = Menu.create!(
 child1.move_to_child_of root1
 
 child2 = Menu.create!(
-  name: '菜单1-2',
+  name: '业务范围',
   menu_url: '/posts/1-2',
   menu_type: :main,
   view_template: :main,
@@ -45,13 +53,42 @@ child2 = Menu.create!(
 child2.move_to_child_of root1
 
 child3 = Menu.create!(
-  name: '菜单1-3',
+  name: '发展规划',
   menu_url: '/posts/1-3',
   menu_type: :main,
   view_template: :main,
   layout_template: :site
 )
 child3.move_to_child_of root1
+
+
+# 新闻中心子菜单
+child1 = Menu.create!(
+  name: '公司动态',
+  menu_url: '/categories/1-1',
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site
+)
+child1.move_to_child_of root2
+
+child2 = Menu.create!(
+  name: '活动专题',
+  menu_url: '/categories/1-2',
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site
+)
+child2.move_to_child_of root2
+
+child3 = Menu.create!(
+  name: '媒体资讯',
+  menu_url: '/categories/1-3',
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site
+)
+child3.move_to_child_of root2
 # ------------------------------------------
 
 # ------------------------------------------
@@ -78,32 +115,20 @@ normal_user.add_role :normal
 # ------------------------------------------
 
 cats = [
-  {name: '学壹新闻', slug: '学壹新闻'},
-  {name: '学壹职业', slug: '学壹职业'},
-  {name: '学壹生活', slug: '学壹生活'},
-  {name: '校友圈', slug: '校友圈'},
-  {name: '工具', slug: '工具'}
+  {name: '公司介绍', slug: '公司介绍'},
+  {name: '新闻中心', slug: '新闻中心'}
 ]
 
 children_of_1 = [
-  {name: '逸仙人物', slug: '逸仙人物'},
-  {name: '视野', slug: '视野'},
-  {name: '图书馆', slug: '图书馆'},
-  {name: '一周红棉路', slug: '一周红棉路'},
-  {name: '校园新闻', slug: '校园新闻'},
-  {name: '高校讲座', slug: '高校讲座'},
-  {name: '赛事资讯', slug: '赛事资讯'}
+  {name: '企业文化', slug: '企业文化'},
+  {name: '业务范围', slug: '业务范围'},
+  {name: '发展规划', slug: '发展规划'}
 ]
 
 children_of_2 = [
-  {name: '名企宣讲会', slug: '名企宣讲会'},
-  {name: '兼职', slug: '兼职'},
-  {name: '实习', slug: '实习'},
-  {name: '外语', slug: '外语'}
-]
-
-children_of_3 = [
-  {name: '舌尖上的大学城', slug: '舌尖上的大学城'}
+  {name: '公司动态', slug: '公司动态'},
+  {name: '活动专题', slug: '兼职'},
+  {name: '媒体资讯', slug: '媒体资讯'}
 ]
 
 root_cat_1 = Category.new(cats[0])
@@ -112,32 +137,18 @@ root_cat_1.save!
 root_cat_2 = Category.new(cats[1])
 root_cat_2.save!
 
-root_cat_3 = Category.new(cats[2])
-root_cat_3.save!
-
-root_cat_4 = Category.new(cats[3])
-root_cat_4.save!
-
-root_cat_5 = Category.new(cats[4])
-root_cat_5.save!
-
 children_of_1.each do |cat|
   child = Category.new(cat)
-  child.save
+  child.save!
   child.move_to_child_of root_cat_1
 end
 
 children_of_2.each do |cat|
   child = Category.new(cat)
-  child.save
+  child.save!
   child.move_to_child_of root_cat_2
 end
 
-children_of_3.each do |cat|
-  child = Category.new(cat)
-  child.save
-  child.move_to_child_of root_cat_3
-end
 # ------------------------------------------
 
 # ------------------------------------------
