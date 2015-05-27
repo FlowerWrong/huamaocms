@@ -1,11 +1,11 @@
 ---
 logo: ''
 banner_one:
-  image_url: http://static.segmentfault.com/page/img/avatar/fen.c0d35a56.png
-  redirect_to: ''
+  image_url: "/uploads/images/ff48ff2a48b3d9aa4a296a9613e745b9.jpeg"
+  redirect_to: https://github.com/carrierwaveuploader/carrierwave
 banner_two:
-  image_url: http://static.segmentfault.com/page/img/avatar/fen.c0d35a56.png
-  redirect_to: ''
+  image_url: "/uploads/images/5ece241793931424d6b3f537949fe57a.png"
+  redirect_to: https://github.com/carrierwaveuploader/carrierwave
 banner_three:
-  image_url: ''
-  redirect_to: ''
+  image_url: "/uploads/images/7b0b6c252f979943f63d6e22ace98031.png"
+  redirect_to: https://github.com/carrierwaveuploader/carrierwave

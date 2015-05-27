@@ -16,39 +16,53 @@
       </div>
       <div class="panel-body">
 
-        <div style="font-size: 36px; color:red;">
-          <p>首页banner图片: 960*352</p>
+        <div style="font-size: 24px; color:red;">
+          <p>首页滑动图片建议大小: 960*352</p>
         </div>
         <%= form_tag("/admin/banners", method: "post", multipart: true) do %>
-          <div class="field">
-            <%= label_tag :value1, "网站banner-1" %><br>
-            <%= image_tag(@data['banner_one']['image_url']) if @banner1.value1? %>
-            <%= file_field_tag "banner1[value1]" %>
-          </div>
-          <div class="field">
-            <%= label_tag :value2, "网站url-1" %><br>
-            <%= text_field_tag "banner1[value2]", @banner1.value2 %>
-          </div>
-          <div class="field">
-            <%= label_tag :value1, "网站banner-2" %><br>
-            <%= image_tag(@banner2.value1_url) if @banner2.value1? %>
-            <%= file_field_tag "banner2[value1]" %>
-          </div>
-          <div class="field">
-            <%= label_tag :value2, "网站url-2" %><br>
-            <%= text_field_tag "banner2[value2]", @banner2.value2 %>
-          </div>
-          <div class="field">
-            <%= label_tag :value1, "网站banner-3" %><br>
-            <%= image_tag(@banner3.value1_url) if @banner3.value1? %>
-            <%= file_field_tag "banner3[value1]" %>
-          </div>
-          <div class="field">
-            <%= label_tag :value2, "网站url-3" %><br>
-            <%= text_field_tag "banner3[value2]", @banner3.value2 %>
-          </div>
-          <div class="actions">
-            <%= submit_tag "提交" %>
+          <fieldset>
+            <div class="form-group">
+              <%= label_tag :image_one, "网站banner-1", class: 'col-sm-2 control-label' %><br>
+              <div class="col-sm-10" style="margin-bottom: 20px;">
+              <%= image_tag(@data['banner_one']['image_url'], width: 120, height: 120) if @data['banner_one'] %>
+              <%= file_field_tag :image_one %>
+              </div>
+              <%= label_tag :banner_one, "网站url-1", class: 'col-sm-2 control-label' %><br>
+              <div class="col-sm-10">
+              <%= text_field_tag :redirect_to_one, @data['banner_one']['redirect_to'], class: 'form-control' %>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <div class="form-group">
+              <%= label_tag :image_two, "网站banner-2", class: 'col-sm-2 control-label' %><br>
+              <div class="col-sm-10" style="margin-bottom: 20px;">
+              <%= image_tag(@data['banner_two']['image_url'], width: 120, height: 120) if @data['banner_two'] %>
+              <%= file_field_tag :image_two %>
+              </div>
+              <%= label_tag :banner_two, "网站url-2", class: 'col-sm-2 control-label' %><br>
+              <div class="col-sm-10">
+              <%= text_field_tag :redirect_to_two, @data['banner_two']['redirect_to'], class: 'form-control' %>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <div class="form-group">
+              <%= label_tag :image_three, "网站banner-3", class: 'col-sm-2 control-label' %><br>
+              <div class="col-sm-10" style="margin-bottom: 20px;">
+              <%= image_tag(@data['banner_three']['image_url'], width: 120, height: 120) if @data['banner_three'] %>
+              <%= file_field_tag :image_three %>
+              </div>
+              <%= label_tag :banner_three, "网站url-3", class: 'col-sm-2 control-label' %><br>
+              <div class="col-sm-10">
+              <%= text_field_tag :redirect_to_three, @data['banner_three']['redirect_to'], class: 'form-control' %>
+              </div>
+            </div>
+          </fieldset>
+          <div class="panel-footer text-center">
+            <%= submit_tag t('form.submit'), class: 'btn btn-info submit-form' %>
           </div>
         <% end %>
 
