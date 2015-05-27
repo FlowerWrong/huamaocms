@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root 'home#index'
+  get 'categories/:id' => 'home#category'
   get 'posts' => 'home#blogs'
   get 'posts/:id' => 'home#post'
   get 'search', to: 'home#search_result_page', as: :search
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
     get 'dashboard' => 'dashboard#index'
     get 'banners' => 'dashboard#banners'
     match 'banners', to: 'dashboard#update_banners', via: :post
+    get 'logo' => 'dashboard#logo'
+    match 'logo', to: 'dashboard#update_logo', via: :post
 
     get 'ueditor_uploader/index'
     match 'ueditor_uploader/index', to: 'ueditor_uploader#index', via: :post

@@ -1,15 +1,19 @@
 require 'will_paginate/array'
 
 class HomeController < SiteController
+  before_action :set_data, only: [:index, :category, :post, :unknown, :search_result_page, :search]
+
   layout 'site'
 
   def index
-    @data = YAML.load_file(Rails.root.join('config', 'site.yml'))
-
     news_center_cat = Category.where(name: '新闻中心').first || Category.find(2)
     xunyicaotang_cat = Category.where(name: '薰衣草堂').first || Category.find(3)
     @news_center = news_center_cat.posts
     @xunyicaotang = xunyicaotang_cat.posts
+  end
+
+  def category
+    @category = Category.find params[:id]
   end
 
   def post
@@ -45,5 +49,9 @@ class HomeController < SiteController
       end
     end
     arr
+  end
+
+  def set_data
+    @data = YAML.load_file(Rails.root.join('config', 'site.yml'))
   end
 end

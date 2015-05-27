@@ -1,5 +1,7 @@
 ---
-logo: ''
+logo:
+  image_url: "/uploads/images/8fb5c90629016f0c26d86a8de4fe79ac.jpg"
+  redirect_to: "/"
 banner_one:
   image_url: "/uploads/images/ff48ff2a48b3d9aa4a296a9613e745b9.jpeg"
   redirect_to: https://github.com/carrierwaveuploader/carrierwave
