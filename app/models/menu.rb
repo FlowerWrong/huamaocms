@@ -3,7 +3,7 @@ class Menu < ActiveRecord::Base
   include TheSortableTree::Scopes
 
   validates :name, :menu_url, :menu_type, presence: true
-  validates :name, :menu_url, uniqueness: true
+  validates :name, uniqueness: true
 
   def title
     name

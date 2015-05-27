@@ -8,20 +8,21 @@ class HomeController < SiteController
   def index
     news_center_cat = Category.where(name: '新闻中心').first || Category.find(2)
     xunyicaotang_cat = Category.where(name: '薰衣草堂').first || Category.find(3)
-    @news_center = news_center_cat.posts
-    @xunyicaotang = xunyicaotang_cat.posts
+    @news_center = news_center_cat.posts.last 10
+    @xunyicaotang = xunyicaotang_cat.posts.last 10
   end
 
   def category
     @cat = Category.find params[:id]
     cat_ids = @cat.descendants.ids
-    @posts = []
+    @posts = @cat.posts
     cat_ids.each do |cid|
-      @posts += Post.where(category_id: cid).order(id: :desc)
+      @posts += Post.where(category_id: cid)
     end
-
     @posts = bubble_sort @posts
     @posts = @posts.paginate(page: params[:page], per_page: 12)
+    p '-' * 20
+    p @posts
 
     menus = Menu.where(menu_url: "/categories/#{@cat.id}")
     @menu = menus.first || Menu.first
@@ -40,7 +41,7 @@ class HomeController < SiteController
     @post = Post.find params[:id]
     @cat = @post.category
 
-    menus = Menu.where(menu_url: "/categories/#{@cat.id}")
+    menus = Menu.where(menu_url: "/posts/#{@post.id}")
     @menu = menus.first || Menu.first
     @menu_children = []
     @parent_menu = nil

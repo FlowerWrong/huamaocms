@@ -2,7 +2,7 @@
   <%= @cat.name %>
 <% end %>
 
-<% if @cat.id == 2 || @cat.id == 3 %>
+<% if @cat.id == 3 %>
 <style type="text/css">
 #itemModal {
   /* SET THE WIDTH OF THE MODAL 设置Modal的宽度*/
@@ -14,122 +14,122 @@
   max-height: 600px;
 }
 </style>
-    <div id="main">
-      <hr>
-      <div class="mainBlock">
-        <div class="menu">
-          <h1 style="font-size: 16px; letter-spacing: 8px; line-height: 30px;"><a href="<%= @parent_menu.menu_url %>"><%= @parent_menu.name %></a></h1>
-
-          <h3 style="font-size: 10px; line-height: 20px; letter-spacing: 2px;"><%= @parent_menu.enname %></h3>
-
-          <div class="nav">
-            <hr>
-            <img style="width: 160px;" src="" alt="" />
-          </div>
-
-        </div>
-        <div class="content">
-          <div id="crumbs"><a href="/" data-no-turbolink>首页</a> > <a href="<%= @parent_menu.menu_url %>"><%= @parent_menu.name %></a></div>
-          <hr>
-          <div class="contentBody">
-            <!-- Button to trigger moadl -->
-            <% @posts.each do |item| %>
-              <a href="#itemModal" data-pid="<%= item.id %>" class="work-item" role="button" class="btn" data-toggle="modal">
-                <% if item.img? %><img src="<%= item.img_url %>"><% else %><div style="width: 170px; height: 218px;"></div><% end %>
-                <p style="text-align: center;"><%= truncate(item.title, :length => 12, :omission => '……') %></p>
-              </a>
-            <% end %>
-            <!-- Modal -->
-            <div style="clear:both;"></div>
-            <div class="pagination">
-              <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
-            </div>
-            <div id="itemModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
-            </div>
-            <!-- Modal end -->
-          </div>
-        </div>
+<div id="main">
+  <hr>
+  <div class="mainBlock">
+    <div class="menu">
+      <h1 style="font-size: 16px; letter-spacing: 8px; line-height: 30px;">
+        <a href="<%= @parent_menu.menu_url %>"><%= @parent_menu.name %></a>
+      </h1>
+      <h3 style="font-size: 10px; line-height: 20px; letter-spacing: 2px;"><%= @parent_menu.enname %></h3>
+      <div class="nav">
+        <hr>
+        <img style="width: 160px;" src="" alt="" />
       </div>
     </div>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.contentBody .work-item').on('click', function (event) {
-                var _pid = $(this).data("pid");
-                $.ajax({
-                    type: "GET",
-                    url: "/api/v1/json/post/" + _pid,
-                    data: {
-                        pid: _pid
-                    },
-                    timeout: 20000,
-                    success: function (data) {
-                        var obj = data,
-                            html = "";
-                        html = '<div class="modal-header">\
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>\
-                                    <h1 class="myModalLabel" style="font-size: 18px;">' + obj.title + '</h1>\
-                                </div>\
-                                <form>\
-                                <div class="modal-body">\
-                                    <div class = "item-content">' + obj.content + '</div>\
-                                </div>\
-                                </form>';
-                        $("#itemModal").html("");
-                        $("#itemModal").append(html);
-                    },
-                    error: function () {
-                        alert("出错了！！！");
-                    }
-                });
-                if (!event.preventDefault) {
-                    event.preventDefault = function () {
-                        event.returnValue = false; //ie
-                    };
-                }
-            });
-        });
-    </script>
-<% else %>
-    <div id="main">
+    <div class="content">
+      <div id="crumbs">
+        <a href="/" data-no-turbolink>首页</a> > <a href="<%= @parent_menu.menu_url %>"><%= @parent_menu.name %></a>
+      </div>
       <hr>
-      <div class="mainBlock">
-        <div class="menu">
-          <h1 style="font-size: 16px; letter-spacing: 8px; line-height: 30px;"><a href="<%= @parent_menu.menu_url %>"><%= @parent_menu.name %></a></h1>
+      <div class="contentBody">
+        <!-- Button to trigger moadl -->
+        <% @posts.each do |item| %>
+          <a href="#itemModal" data-pid="<%= item.id %>" class="work-item" role="button" class="btn" data-toggle="modal">
+            <% if item.img? %><img src="<%= item.img_url %>"><% else %><div style="width: 170px; height: 218px;"></div><% end %>
+            <p style="text-align: center;"><%= truncate(item.title, :length => 12, :omission => '……') %></p>
+          </a>
+        <% end %>
+        <!-- Modal -->
+        <div style="clear:both;"></div>
+        <div class="pagination">
+          <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+        </div>
+        <div id="itemModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        </div>
+        <!-- Modal end -->
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.contentBody .work-item').on('click', function (event) {
+        var _pid = $(this).data("pid");
+        $.ajax({
+            type: "GET",
+            url: "/api/v1/json/post/" + _pid,
+            data: {
+                pid: _pid
+            },
+            timeout: 20000,
+            success: function (data) {
+                var obj = data,
+                    html = "";
+                html = '<div class="modal-header">\
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>\
+                            <h1 class="myModalLabel" style="font-size: 18px;">' + obj.title + '</h1>\
+                        </div>\
+                        <form>\
+                        <div class="modal-body">\
+                            <div class = "item-content">' + obj.content + '</div>\
+                        </div>\
+                        </form>';
+                $("#itemModal").html("");
+                $("#itemModal").append(html);
+            },
+            error: function () {
+                alert("出错了！！！");
+            }
+        });
+        if (!event.preventDefault) {
+            event.preventDefault = function () {
+                event.returnValue = false; //ie
+            };
+        }
+    });
+});
+</script>
+<% else %>
+<div id="main">
+  <hr>
+  <div class="mainBlock">
+    <div class="menu">
+      <h1 style="font-size: 16px; letter-spacing: 8px; line-height: 30px;"><a href="<%= @parent_menu.menu_url %>"><%= @parent_menu.name %></a></h1>
 
-          <h3 style="font-size: 10px; line-height: 20px; letter-spacing: 2px;"><%= @parent_menu.enname %></h3>
-          <% if @menu_children != [] %>
-              <div class="nav">
-                <hr>
-                <ul>
-                  <% @menu_children.each do |mc| %>
-                      <li><a href="<%= mc.menu_url %>" data-no-turbolink><%= mc.name %></a></li>
-                  <% end %>
-                </ul>
-              </div>
+      <h3 style="font-size: 10px; line-height: 20px; letter-spacing: 2px;"><%= @parent_menu.enname %></h3>
+      <% if @menu_children != [] %>
+      <div class="nav">
+        <hr>
+        <ul>
+          <% @menu_children.each do |mc| %>
+              <li><a href="<%= mc.menu_url %>" data-no-turbolink><%= mc.name %></a></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+    <div class="content">
+      <div id="crumbs"><a href="/" data-no-turbolink>首页</a> >
+        <a href="<%= @parent_menu.menu_url %>" data-no-turbolink><%= @parent_menu.name %></a></div>
+      <hr>
+      <div class="contentBody">
+        <!-- 项目展示 body -->
+        <div class="item-show-list">
+          <% @posts.each do |item| %>
+          <div class="item">
+            <a href="/posts/<%= item.id %>" data-no-turbolink>
+              <div class="item-title" style="font-size: 14px;"><%= item.title %></div>
+            </a>
+            <div style="clear:both"></div>
+          </div>
           <% end %>
         </div>
-        <div class="content">
-          <div id="crumbs"><a href="/" data-no-turbolink>首页</a> >
-            <a href="<%= @parent_menu.menu_url %>" data-no-turbolink><%= @parent_menu.name %></a></div>
-          <hr>
-          <div class="contentBody">
-            <!-- 项目展示 body -->
-            <div class="item-show-list">
-              <% @posts.each do |item| %>
-                  <div class="item">
-                    <a href="/cat/<%= item.cat.id %>/post/<%= item.id %>" data-no-turbolink>
-                      <div class="item-title" style="font-size: 14px;"><%= item.title %></div>
-                    </a>
-                    <div style="clear:both"></div>
-                  </div>
-              <% end %>
-            </div>
-            <div class="pagination">
-              <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
-            </div>
-          </div>
+        <div class="pagination">
+          <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
         </div>
       </div>
     </div>
+  </div>
+</div>
 <% end %>
