@@ -7,7 +7,10 @@ class Admin::DashboardController < Admin::ApplicationController
 
   def banners
     @data = YAML.load_file(Rails.root.join('config', 'site.yml'))
+  end
 
+  def update_banners
+    @data = YAML.load_file(Rails.root.join('config', 'site.yml'))
     @data['banner_one']['image_url'] = 'http://static.segmentfault.com/page/img/avatar/fen.c0d35a56.png'
     @data['banner_two']['image_url'] = 'http://static.segmentfault.com/page/img/avatar/fen.c0d35a56.png'
     File.open(Rails.root.join('config', 'site.yml'), 'wb') { |f| YAML.dump(@data, f) }

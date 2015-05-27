@@ -1,0 +1,59 @@
+<% content_for :page_title do %>
+  <%= t 'form.edit' %>首页滑动图片
+<% end %>
+
+<% content_for :content_title do %>
+  <%= t 'form.edit' %>首页滑动图片
+  <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <!-- START panel-->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title"><%= t('form.edit') %>首页滑动图片</div>
+      </div>
+      <div class="panel-body">
+
+        <div style="font-size: 36px; color:red;">
+          <p>首页banner图片: 960*352</p>
+        </div>
+        <%= form_tag("/admin/banners", method: "post", multipart: true) do %>
+          <div class="field">
+            <%= label_tag :value1, "网站banner-1" %><br>
+            <%= image_tag(@data['banner_one']['image_url']) if @banner1.value1? %>
+            <%= file_field_tag "banner1[value1]" %>
+          </div>
+          <div class="field">
+            <%= label_tag :value2, "网站url-1" %><br>
+            <%= text_field_tag "banner1[value2]", @banner1.value2 %>
+          </div>
+          <div class="field">
+            <%= label_tag :value1, "网站banner-2" %><br>
+            <%= image_tag(@banner2.value1_url) if @banner2.value1? %>
+            <%= file_field_tag "banner2[value1]" %>
+          </div>
+          <div class="field">
+            <%= label_tag :value2, "网站url-2" %><br>
+            <%= text_field_tag "banner2[value2]", @banner2.value2 %>
+          </div>
+          <div class="field">
+            <%= label_tag :value1, "网站banner-3" %><br>
+            <%= image_tag(@banner3.value1_url) if @banner3.value1? %>
+            <%= file_field_tag "banner3[value1]" %>
+          </div>
+          <div class="field">
+            <%= label_tag :value2, "网站url-3" %><br>
+            <%= text_field_tag "banner3[value2]", @banner3.value2 %>
+          </div>
+          <div class="actions">
+            <%= submit_tag "提交" %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+    <!-- END panel-->
+  </div>
+</div>

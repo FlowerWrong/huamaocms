@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'dashboard' => 'dashboard#index'
     get 'banners' => 'dashboard#banners'
+    match 'banners', to: 'dashboard#update_banners', via: :post
 
     get 'ueditor_uploader/index'
     match 'ueditor_uploader/index', to: 'ueditor_uploader#index', via: :post
