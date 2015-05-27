@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Base rails app">
-  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin, rails, bower">
+  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, rails, bower">
   <title><%= yield :page_title %></title>
   <%= stylesheet_link_tag 'site', media: 'all', 'data-turbolinks-track' => true %>
   <%= yield :page_only_css %>
@@ -109,7 +109,7 @@ function exist_in_arr(arr, str) {
   <div id="header">
     <div id="headerBar">
       <div id="logo">
-        <img src="<%= Setting.where(config_key: 'logo').first.config_value %>" alt="logo" />
+        <img src="<%= @data['logo'] %>" alt="logo" />
       </div>
       <div id="headerNavBar">
         <ul id="headerNavMenu">

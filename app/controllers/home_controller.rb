@@ -4,12 +4,10 @@ class HomeController < SiteController
   layout 'site'
 
   def index
-    @posts = Post.last 10
-    render layout: 'site'
-  end
+    @data = YAML.load_file(Rails.root.join('config', 'site.yml'))
 
-  def blogs
-    @posts = Post.all
+    @news_center = Category.where(name: '新闻中心').first.posts
+    @xunyicaotang = Category.where(name: '薰衣草堂').first.posts
   end
 
   def post

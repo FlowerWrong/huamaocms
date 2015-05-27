@@ -17,7 +17,6 @@ describe 'admin post test', type: :feature do
     expect(page).to have_content '新建文章'
     within('#new_post') do
       find('#post_title').set('Test title')
-      find('#post_summary').set('Test summary')
       find('#post_author').set('Test author')
       within '#post_category_id' do
         find('option[value="1"]').click
