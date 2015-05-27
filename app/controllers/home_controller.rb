@@ -13,11 +13,44 @@ class HomeController < SiteController
   end
 
   def category
-    @category = Category.find params[:id]
+    @cat = Category.find params[:id]
+    cat_ids = @cat.descendants.ids
+    @posts = []
+    cat_ids.each do |cid|
+      @posts += Post.where(category_id: cid).order(id: :desc)
+    end
+
+    @posts = bubble_sort @posts
+    @posts = @posts.paginate(page: params[:page], per_page: 12)
+
+    menus = Menu.where(menu_url: "/categories/#{@cat.id}")
+    @menu = menus.first || Menu.first
+    @menu_children = []
+    @parent_menu = nil
+    if @menu.root?
+      @parent_menu = @menu
+      @menu_children = @parent_menu.children
+    else
+      @parent_menu = @menu.parent
+      @menu_children = @parent_menu.children
+    end
   end
 
   def post
     @post = Post.find params[:id]
+    @cat = @post.category
+
+    menus = Menu.where(menu_url: "/categories/#{@cat.id}")
+    @menu = menus.first || Menu.first
+    @menu_children = []
+    @parent_menu = nil
+    if @menu.root?
+      @parent_menu = @menu
+      @menu_children = @parent_menu.children
+    else
+      @parent_menu = @menu.parent
+      @menu_children = @parent_menu.children
+    end
   end
 
   def search_result_page
