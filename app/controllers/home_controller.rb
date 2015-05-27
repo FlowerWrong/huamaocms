@@ -6,8 +6,10 @@ class HomeController < SiteController
   def index
     @data = YAML.load_file(Rails.root.join('config', 'site.yml'))
 
-    @news_center = Category.where(name: '新闻中心').first.posts
-    @xunyicaotang = Category.where(name: '薰衣草堂').first.posts
+    news_center_cat = Category.where(name: '新闻中心').first || Category.find(2)
+    xunyicaotang_cat = Category.where(name: '薰衣草堂').first || Category.find(3)
+    @news_center = news_center_cat.posts
+    @xunyicaotang = xunyicaotang_cat.posts
   end
 
   def post
