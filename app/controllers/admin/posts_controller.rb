@@ -29,19 +29,6 @@ class Admin::PostsController < Admin::ApplicationController
 
     respond_to do |format|
       if @post.save
-=begin
-        uploader = ActsAsImageable::ImageUploader.new
-        uploader.store!(params[:image])
-        ActsAsImageable::Image.create!(
-          imageable_id: @post.id,
-          imageable_type: @post.class,
-          image_name: uploader.filename,
-          image_uid: ActsAsImageable::Image.uuid,
-          image_mime_type: '',
-          image_size: uploader.size,
-          image_ext: uploader.content_type
-        )
-=end
         format.html { redirect_to admin_post_url(@post), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -55,12 +42,17 @@ class Admin::PostsController < Admin::ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to admin_post_url(@post), notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
+      if @post.editable
+        if @post.update(post_params)
+          format.html { redirect_to admin_post_url(@post), notice: 'Post was successfully updated.' }
+          format.json { render :show, status: :ok, location: @post }
+        else
+          format.html { render :edit }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.html { redirect_to admin_post_url(@post), notice: '该项不可编辑.' }
+        format.json { render :show, status: :ok, location: @post }
       end
     end
   end
@@ -68,10 +60,17 @@ class Admin::PostsController < Admin::ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
+    if @post.destroyable
+      @post.destroy
+      respond_to do |format|
+        format.html { redirect_to admin_posts_url, notice: 'Post was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to admin_posts_url, notice: '该项不可删除.' }
+        format.json { head :no_content }
+      end
     end
   end
 

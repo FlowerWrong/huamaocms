@@ -31,7 +31,6 @@
               <th><%= t 'activerecord.attributes.menu.menu_type' %></th>
               <th><%= t 'activerecord.attributes.menu.menu_url' %></th>
               <th><%= t 'activerecord.attributes.menu.beautify_url' %></th>
-              <th><%= t 'activerecord.attributes.menu.menu_order' %></th>
               <th><%= t 'form.action' %></th>
             </tr>
           </thead>
@@ -43,7 +42,6 @@
                 <td><%= menu.menu_type %></td>
                 <td><%= menu.menu_url %></td>
                 <td><%= menu.beautify_url %></td>
-                <td><%= menu.menu_order %></td>
                 <td>
                  <%= link_to t('form.show'), admin_menu_path(menu) %>
                  <% if menu.editable %>

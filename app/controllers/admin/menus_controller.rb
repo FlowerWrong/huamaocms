@@ -52,12 +52,17 @@ class Admin::MenusController < Admin::ApplicationController
   # PATCH/PUT /menus/1.json
   def update
     respond_to do |format|
-      if @menu.update(menu_params)
-        format.html { redirect_to admin_menu_url(@menu), notice: 'Menu was successfully updated.' }
-        format.json { render :show, status: :ok, location: @menu }
+      if @menu.editable
+        if @menu.update(menu_params)
+          format.html { redirect_to admin_menu_url(@menu), notice: 'Menu was successfully updated.' }
+          format.json { render :show, status: :ok, location: @menu }
+        else
+          format.html { render :edit }
+          format.json { render json: @menu.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @menu.errors, status: :unprocessable_entity }
+        format.html { redirect_to admin_menu_url(@menu), notice: '该项不可编辑.' }
+        format.json { render :show, status: :ok, location: @menu }
       end
     end
   end
@@ -65,10 +70,17 @@ class Admin::MenusController < Admin::ApplicationController
   # DELETE /menus/1
   # DELETE /menus/1.json
   def destroy
-    @menu.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_menus_url, notice: 'Menu was successfully destroyed.' }
-      format.json { head :no_content }
+    if @menu.destroyable
+      @menu.destroy
+      respond_to do |format|
+        format.html { redirect_to admin_menus_url, notice: 'Menu was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to admin_menus_url, notice: '该项不可删除.' }
+        format.json { head :no_content }
+      end
     end
   end
 

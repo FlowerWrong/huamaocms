@@ -50,12 +50,17 @@ class Admin::CategoriesController < Admin::ApplicationController
   # PATCH/PUT /categories/1.json
   def update
     respond_to do |format|
-      if @category.update(category_params)
-        format.html { redirect_to admin_category_url(@category), notice: 'Category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @category }
+      if @category.editable
+        if @category.update(category_params)
+          format.html { redirect_to admin_category_url(@category), notice: 'Category was successfully updated.' }
+          format.json { render :show, status: :ok, location: @category }
+        else
+          format.html { render :edit }
+          format.json { render json: @category.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.html { redirect_to admin_category_url(@category), notice: '该项不可编辑.' }
+        format.json { render :show, status: :ok, location: @category }
       end
     end
   end
@@ -63,10 +68,17 @@ class Admin::CategoriesController < Admin::ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    @category.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_categories_url, notice: 'Category was successfully destroyed.' }
-      format.json { head :no_content }
+    if @category.destroyable
+      @category.destroy
+      respond_to do |format|
+        format.html { redirect_to admin_categories_url, notice: 'Category was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to admin_categories_url, notice: '该项不可删除.' }
+        format.json { head :no_content }
+      end
     end
   end
 
