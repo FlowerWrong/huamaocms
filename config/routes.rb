@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'posts' => 'home#blogs'
   get 'posts/:id' => 'home#post'
   get 'search', to: 'home#search_result_page', as: :search
+  get 'api/v1/json/posts/:pid', to: 'home#product', as: :product_json
 
   namespace :admin do
     get 'dashboard' => 'dashboard#index'

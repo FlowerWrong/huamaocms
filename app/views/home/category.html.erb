@@ -54,40 +54,41 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function () {
-    $('.contentBody .work-item').on('click', function (event) {
-        var _pid = $(this).data("pid");
-        $.ajax({
-            type: "GET",
-            url: "/api/v1/json/post/" + _pid,
-            data: {
-                pid: _pid
-            },
-            timeout: 20000,
-            success: function (data) {
-                var obj = data,
-                    html = "";
-                html = '<div class="modal-header">\
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>\
-                            <h1 class="myModalLabel" style="font-size: 18px;">' + obj.title + '</h1>\
-                        </div>\
-                        <form>\
-                        <div class="modal-body">\
-                            <div class = "item-content">' + obj.content + '</div>\
-                        </div>\
-                        </form>';
-                $("#itemModal").html("");
-                $("#itemModal").append(html);
-            },
-            error: function () {
-                alert("出错了！！！");
-            }
-        });
-        if (!event.preventDefault) {
-            event.preventDefault = function () {
-                event.returnValue = false; //ie
-            };
-        }
+  $('.contentBody .work-item').on('click', function (event) {
+    var _pid = $(this).data("pid");
+    $.ajax({
+      type: "GET",
+      url: "/api/v1/json/posts/" + _pid,
+      data: {
+        pid: _pid
+      },
+      timeout: 20000,
+      success: function (data) {
+        var obj = data,
+            html = '';
+        html = '<div class="modal-header">\
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>\
+                    <h1 class="myModalLabel" style="font-size: 18px;">' + obj.title + '</h1>\
+                </div>\
+                <form>\
+                <div class="modal-body">\
+                    <div class = "item-content">' + obj.content + '</div>\
+                </div>\
+                </form>';
+        $("#itemModal").html("");
+        alert(html);
+        $("#itemModal").append(html);
+      },
+      error: function () {
+        alert("出错了！！！");
+      }
     });
+    if (!event.preventDefault) {
+      event.preventDefault = function () {
+        event.returnValue = false; //ie
+      };
+    }
+  });
 });
 </script>
 <% else %>

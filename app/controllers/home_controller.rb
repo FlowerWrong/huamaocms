@@ -21,8 +21,6 @@ class HomeController < SiteController
     end
     @posts = bubble_sort @posts
     @posts = @posts.paginate(page: params[:page], per_page: 12)
-    p '-' * 20
-    p @posts
 
     menus = Menu.where(menu_url: "/categories/#{@cat.id}")
     @menu = menus.first || Menu.first
@@ -54,12 +52,14 @@ class HomeController < SiteController
     end
   end
 
+  def product
+    @product = Post.find(params[:pid])
+    render json: @product
+  end
+
   def search_result_page
     keyword = params[:keyword]
     @posts = Post.find_by_sql("SELECT * FROM posts WHERE title LIKE '%#{keyword}%' OR content LIKE '%#{keyword}%'").paginate(page: params[:page], per_page: 12)
-  end
-
-  def search
   end
 
   def unknown

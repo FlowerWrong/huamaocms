@@ -6,31 +6,24 @@
   <meta name="description" content="Base rails app">
   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, rails, bower">
   <title><%= yield :page_title %></title>
+  <link rel="stylesheet" type="text/css" href="/frontend/assets/bootstrap/css/bootstrap.css">
   <%= stylesheet_link_tag 'site', media: 'all', 'data-turbolinks-track' => true %>
   <%= yield :page_only_css %>
   <%= javascript_include_tag 'site', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="/frontend/assets/bootstrap/js/bootstrap.js"></script>
   <%= yield :page_only_js %>
   <%= csrf_meta_tags %>
   <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
-<!--[if  lte IE 7]>
-<style type="text/css">
-#wrapper{
-  display: none;
-}
-#ieBody{
-  display: block;
-}
-</style>
-<![endif]-->
-
-<style type="text/css">
-p {
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 10px;
-  margin-left: 0;
-}
-</style>
+  <!--[if  lte IE 7]>
+  <style type="text/css">
+  #wrapper{
+    display: none;
+  }
+  #ieBody{
+    display: block;
+  }
+  </style>
+  <![endif]-->
 <script type="text/javascript">
 jQuery(document).on('ready page:load', function(){
   var top_munu_urls = new Array();

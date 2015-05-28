@@ -177,3 +177,8 @@ html,body{
 	min-height: 600px;
 	margin-top: 20px;
 }
+
+/* 覆盖分页样式bug */
+.pagination ul {
+	box-shadow: none;
+}
