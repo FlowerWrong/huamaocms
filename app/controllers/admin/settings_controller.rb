@@ -44,12 +44,17 @@ class Admin::SettingsController < Admin::ApplicationController
   # PATCH/PUT /settings/1.json
   def update
     respond_to do |format|
-      if @setting.update(setting_params)
-        format.html { redirect_to admin_setting_url(@setting), notice: 'Setting was successfully updated.' }
-        format.json { render :show, status: :ok, location: @setting }
+      if @setting.editable
+        if @setting.update(setting_params)
+          format.html { redirect_to admin_setting_url(@setting), notice: 'Setting was successfully updated.' }
+          format.json { render :show, status: :ok, location: @setting }
+        else
+          format.html { render :edit }
+          format.json { render json: @setting.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @setting.errors, status: :unprocessable_entity }
+        format.html { redirect_to admin_setting_url(@setting), notice: '该项不可编辑.' }
+        format.json { render :show, status: :ok, location: @setting }
       end
     end
   end
@@ -57,10 +62,17 @@ class Admin::SettingsController < Admin::ApplicationController
   # DELETE /settings/1
   # DELETE /settings/1.json
   def destroy
-    @setting.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_settings_url, notice: 'Setting was successfully destroyed.' }
-      format.json { head :no_content }
+    if @setting.destroyable
+      @setting.destroy
+      respond_to do |format|
+        format.html { redirect_to admin_settings_url, notice: 'Setting was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to admin_settings_url, notice: '该项不可删除.' }
+        format.json { head :no_content }
+      end
     end
   end
 

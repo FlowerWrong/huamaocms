@@ -13,6 +13,8 @@ class CreateCategories < ActiveRecord::Migration
       t.integer :children_count, :null => false, :default => 0
 
       t.timestamps null: false
+      t.boolean :destroyable, default: true
+      t.boolean :editable, default: true
     end
   end
 end

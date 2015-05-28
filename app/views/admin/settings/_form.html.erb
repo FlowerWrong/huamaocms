@@ -42,26 +42,6 @@
       </div>
     </div>
   </fieldset>
-  <fieldset>
-    <div class="form-group">
-      <%= f.label :destroyable, class: 'col-sm-2 control-label' do %>
-        <%= t('activerecord.attributes.setting.destroyable') %>
-      <% end %>
-      <div class="col-sm-10">
-      <%= f.check_box :destroyable, class: 'form-control' %>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
-    <div class="form-group">
-      <%= f.label :editable, class: 'col-sm-2 control-label' do %>
-        <%= t('activerecord.attributes.setting.editable') %>
-      <% end %>
-      <div class="col-sm-10">
-      <%= f.check_box :editable, class: 'form-control' %>
-      </div>
-    </div>
-  </fieldset>
   <div class="panel-footer text-center">
     <%= f.submit t('form.submit'), class: 'btn btn-info' %>
     <%= link_to t('form.back'), admin_settings_path, class: 'btn btn-info' %>

@@ -7,15 +7,15 @@ time_start = Time.now
 # ------------------------------------------
 
 cats = [
-  { name: '公司介绍', slug: '公司介绍' },  # id=1
-  { name: '新闻中心', slug: '新闻中心' },  # id=2
-  { name: '薰衣草堂', slug: '薰衣草堂' }  # id=3
+  { name: '公司介绍', slug: '公司介绍', destroyable: false },  # id=1
+  { name: '新闻中心', slug: '新闻中心', destroyable: false },  # id=2
+  { name: '薰衣草堂', slug: '薰衣草堂', destroyable: false }  # id=3
 ]
 
 children_of_2 = [
-  { name: '公司动态', slug: '公司动态' },  # id=4
-  { name: '活动专题', slug: '兼职' },  # id=5
-  { name: '媒体资讯', slug: '媒体资讯' }  # id=6
+  { name: '公司动态', slug: '公司动态', destroyable: false },  # id=4
+  { name: '活动专题', slug: '兼职', destroyable: false },  # id=5
+  { name: '媒体资讯', slug: '媒体资讯', destroyable: false }  # id=6
 ]
 
 root_cat_1 = Category.new(cats[0])
@@ -42,7 +42,8 @@ Menu.create!(
   menu_url: '/',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 
 root1 = Menu.create!(
@@ -51,7 +52,8 @@ root1 = Menu.create!(
   menu_url: '/posts/3',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 
 Menu.create!(
@@ -59,7 +61,8 @@ Menu.create!(
   menu_url: '/huamao/shop',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 
 Menu.create!(
@@ -67,7 +70,8 @@ Menu.create!(
   menu_url: '/categories/3',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 
 root2 = Menu.create!(
@@ -77,7 +81,8 @@ root2 = Menu.create!(
   menu_type: :main,
   beautify_url: 'about',
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 root3 = Menu.create!(
   name: '加入我们',
@@ -85,7 +90,8 @@ root3 = Menu.create!(
   menu_url: '/posts/1',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 root4 = Menu.create!(
   name: '联系我们',
@@ -93,7 +99,8 @@ root4 = Menu.create!(
   menu_url: '/posts/2',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 
 # 公司简介子菜单
@@ -102,7 +109,8 @@ child1 = Menu.create!(
   menu_url: '/posts/3',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 child1.move_to_child_of root1
 
@@ -111,7 +119,8 @@ child2 = Menu.create!(
   menu_url: '/posts/4',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 child2.move_to_child_of root1
 
@@ -120,7 +129,8 @@ child3 = Menu.create!(
   menu_url: '/posts/5',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 child3.move_to_child_of root1
 
@@ -131,7 +141,8 @@ child1 = Menu.create!(
   menu_url: '/categories/4',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 child1.move_to_child_of root2
 
@@ -140,7 +151,8 @@ child2 = Menu.create!(
   menu_url: '/categories/5',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 child2.move_to_child_of root2
 
@@ -149,7 +161,8 @@ child3 = Menu.create!(
   menu_url: '/categories/6',
   menu_type: :main,
   view_template: :main,
-  layout_template: :site
+  layout_template: :site,
+  destroyable: false
 )
 child3.move_to_child_of root2
 # ------------------------------------------
@@ -160,7 +173,8 @@ child3.move_to_child_of root2
     user_id: 1,
     author: '杨浮生',
     category_id: 1,
-    publish_time: Time.now
+    publish_time: Time.now,
+    destroyable: false
   )
 end
 

@@ -11,18 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526125248) do
+ActiveRecord::Schema.define(version: 20150513063904) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",           limit: 255
     t.string   "slug",           limit: 255
     t.integer  "parent_id",      limit: 4
-    t.integer  "lft",            limit: 4,               null: false
-    t.integer  "rgt",            limit: 4,               null: false
-    t.integer  "depth",          limit: 4,   default: 0, null: false
-    t.integer  "children_count", limit: 4,   default: 0, null: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.integer  "lft",            limit: 4,                  null: false
+    t.integer  "rgt",            limit: 4,                  null: false
+    t.integer  "depth",          limit: 4,   default: 0,    null: false
+    t.integer  "children_count", limit: 4,   default: 0,    null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.boolean  "destroyable",    limit: 1,   default: true
+    t.boolean  "editable",       limit: 1,   default: true
   end
 
   add_index "categories", ["lft"], name: "index_categories_on_lft", using: :btree
@@ -57,8 +59,12 @@ ActiveRecord::Schema.define(version: 20150526125248) do
 
   create_table "menus", force: :cascade do |t|
     t.string   "name",            limit: 255
+    t.string   "enname",          limit: 255
+    t.string   "view_template",   limit: 255
+    t.string   "layout_template", limit: 255
     t.string   "menu_type",       limit: 255
     t.string   "menu_url",        limit: 255
+    t.string   "beautify_url",    limit: 255
     t.integer  "menu_order",      limit: 4,   default: 0,    null: false
     t.integer  "parent_id",       limit: 4
     t.integer  "lft",             limit: 4,                  null: false
@@ -67,12 +73,8 @@ ActiveRecord::Schema.define(version: 20150526125248) do
     t.integer  "children_count",  limit: 4,   default: 0,    null: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.string   "beautify_url",    limit: 255
-    t.boolean  "editable",        limit: 1,   default: true
     t.boolean  "destroyable",     limit: 1,   default: true
-    t.string   "view_template",   limit: 255
-    t.string   "layout_template", limit: 255
-    t.string   "enname",          limit: 255
+    t.boolean  "editable",        limit: 1,   default: true
   end
 
   add_index "menus", ["lft"], name: "index_menus_on_lft", using: :btree
@@ -83,6 +85,7 @@ ActiveRecord::Schema.define(version: 20150526125248) do
     t.string   "title",        limit: 255
     t.text     "summary",      limit: 65535
     t.text     "content",      limit: 65535
+    t.integer  "category_id",  limit: 4
     t.integer  "user_id",      limit: 4
     t.string   "author",       limit: 255
     t.string   "img",          limit: 255
@@ -91,9 +94,10 @@ ActiveRecord::Schema.define(version: 20150526125248) do
     t.boolean  "can_comment",  limit: 1,     default: true
     t.boolean  "is_recommend", limit: 1,     default: false
     t.boolean  "is_published", limit: 1,     default: true
+    t.boolean  "destroyable",  limit: 1,     default: true
+    t.boolean  "editable",     limit: 1,     default: true
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.integer  "category_id",  limit: 4
   end
 
   create_table "roles", force: :cascade do |t|
@@ -111,10 +115,10 @@ ActiveRecord::Schema.define(version: 20150526125248) do
     t.string   "slug",         limit: 255
     t.string   "config_key",   limit: 255
     t.string   "config_value", limit: 255
-    t.boolean  "destroyable",  limit: 1,   default: false
-    t.boolean  "editable",     limit: 1,   default: false
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.boolean  "destroyable",  limit: 1,   default: true
+    t.boolean  "editable",     limit: 1,   default: true
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "taggings", force: :cascade do |t|

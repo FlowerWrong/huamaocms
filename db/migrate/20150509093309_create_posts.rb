@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :summary
       t.text :content
+      t.integer :category_id
       t.integer :user_id
       t.string :author
       t.string :img
@@ -12,6 +13,8 @@ class CreatePosts < ActiveRecord::Migration
       t.boolean :can_comment, default: true
       t.boolean :is_recommend, default: false
       t.boolean :is_published, default: true
+      t.boolean :destroyable, default: true
+      t.boolean :editable, default: true
 
       t.timestamps null: false
     end

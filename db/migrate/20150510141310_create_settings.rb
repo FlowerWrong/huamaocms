@@ -4,8 +4,8 @@ class CreateSettings < ActiveRecord::Migration
       t.string :slug
       t.string :config_key
       t.string :config_value
-      t.boolean :destroyable, default: false
-      t.boolean :editable, default: false
+      t.boolean :destroyable, default: true
+      t.boolean :editable, default: true
 
       t.timestamps null: false
     end
