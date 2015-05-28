@@ -66,7 +66,6 @@ group :development, :test do
   gem 'database_cleaner'
 
   # static code checker
-  gem 'jshintrb', require: false
   gem 'scss_lint', require: false
 end
 
