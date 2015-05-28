@@ -30,7 +30,7 @@ $(document).on('ready page:load', function(){
   $("#headerNavMenu li a").each(function(){
     var _str_each_path = $(this).attr("href");
     if(_str_each_path === _str_current_path) {
-      $(this).css({"color": "white", "background-color": "#0088cc"});
+      $(this).css({"color": "white", "background-color": "#8a8aef"});
     } else {
       // $('a', $("#headerNavMenu li")[0]).css({"color": "white", "background-color": "#0088cc"});
     }
@@ -60,6 +60,7 @@ $(document).on('ready page:load', function(){
           <% end %>
         </ul>
       </div>
+<!--
       <div id = "search">
         <form id="searchform" action="/search" method="get">
           <input type="text" name="keyword" id="s" placeholder='请输入搜索内容'>
@@ -68,6 +69,7 @@ $(document).on('ready page:load', function(){
           </button>
         </form>
       </div>
+-->
     </div>
   </div>
   <div style="clear:both;"></div>
@@ -82,7 +84,7 @@ $(document).on('ready page:load', function(){
         <span style="font-size: 16px;">友情链接：</span>
         <div class="friendLinkBlock">
           <% FriendLink.where(f_group_id: 1).limit(5).each do |fl| %>
-            <a href="<%= fl.f_url %>"><img src="<%= fl.f_logo_url %>" alt='linklogo'/></a>
+            <a href="<%= fl.f_url %>"><%= fl.name %></a>
           <% end %>
         </div>
       </div>

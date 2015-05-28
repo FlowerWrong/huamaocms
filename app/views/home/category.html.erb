@@ -19,7 +19,7 @@
   <div class="mainBlock">
     <div class="menu">
       <h1 style="font-size: 16px; letter-spacing: 8px; line-height: 30px;">
-        <a href="<%= @parent_menu.menu_url %>"><%= @parent_menu.name %></a>
+        <a href="<%= @parent_menu.menu_url %>" class="font-zi"><%= @parent_menu.name %></a>
       </h1>
       <h3 style="font-size: 10px; line-height: 20px; letter-spacing: 2px;"><%= @parent_menu.enname %></h3>
       <div class="nav">
@@ -29,7 +29,7 @@
     </div>
     <div class="content">
       <div id="crumbs">
-        <a href="/" data-no-turbolink>首页</a> > <a href="<%= @parent_menu.menu_url %>"><%= @parent_menu.name %></a>
+        <a href="/" data-no-turbolink class="font-zi">首页</a> > <a href="<%= @parent_menu.menu_url %>" class="font-zi"><%= @parent_menu.name %></a>
       </div>
       <hr>
       <div class="contentBody">
@@ -37,7 +37,7 @@
         <% @posts.each do |item| %>
           <a href="#itemModal" data-pid="<%= item.id %>" class="work-item" role="button" class="btn" data-toggle="modal">
             <% if item.img? %><img src="<%= item.img_url %>"><% else %><div style="width: 170px; height: 218px;"></div><% end %>
-            <p style="text-align: center;"><%= truncate(item.title, :length => 12, :omission => '……') %></p>
+            <p style="text-align: center;" class="font-zi"><%= truncate(item.title, :length => 12, :omission => '……') %></p>
           </a>
         <% end %>
         <!-- Modal -->
@@ -95,9 +95,9 @@ $(document).ready(function () {
   <hr>
   <div class="mainBlock">
     <div class="menu">
-      <h1 style="font-size: 16px; letter-spacing: 8px; line-height: 30px;"><a href="<%= @parent_menu.menu_url %>"><%= @parent_menu.name %></a></h1>
+      <h1 style="font-size: 16px; letter-spacing: 8px; line-height: 30px;"><a href="<%= @parent_menu.menu_url %>"  class="font-zi"><%= @parent_menu.name %></a></h1>
 
-      <h3 style="font-size: 10px; line-height: 20px; letter-spacing: 2px;"><%= @parent_menu.enname %></h3>
+      <h3 style="font-size: 10px; line-height: 20px; letter-spacing: 2px;" class="font-zi"><%= @parent_menu.enname %></h3>
       <% if @menu_children != [] %>
       <div class="nav">
         <hr>
@@ -110,15 +110,15 @@ $(document).ready(function () {
       <% end %>
     </div>
     <div class="content">
-      <div id="crumbs"><a href="/" data-no-turbolink>首页</a> >
-        <a href="<%= @parent_menu.menu_url %>" data-no-turbolink><%= @parent_menu.name %></a></div>
+      <div id="crumbs"><a href="/" data-no-turbolink class="font-zi">首页</a> >
+        <a href="<%= @parent_menu.menu_url %>" data-no-turbolink class="font-zi"><%= @parent_menu.name %></a></div>
       <hr>
       <div class="contentBody">
         <!-- 项目展示 body -->
         <div class="item-show-list">
           <% @posts.each do |item| %>
           <div class="item">
-            <a href="/posts/<%= item.id %>" data-no-turbolink>
+            <a href="/posts/<%= item.id %>" data-no-turbolink class="font-zi">
               <div class="item-title" style="font-size: 14px;"><%= item.title %></div>
             </a>
             <div style="clear:both"></div>

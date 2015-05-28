@@ -49,7 +49,7 @@ Menu.create!(
 root1 = Menu.create!(
   name: '公司介绍',
   enname: 'COMPANY INTRODUCTION',
-  menu_url: '/posts/3',
+  menu_url: '/posts/6',
   menu_type: :main,
   view_template: :main,
   layout_template: :site,
@@ -104,6 +104,16 @@ root4 = Menu.create!(
 )
 
 # 公司简介子菜单
+child0 = Menu.create!(
+  name: '公司简介',
+  menu_url: '/posts/6',
+  menu_type: :main,
+  view_template: :main,
+  layout_template: :site,
+  destroyable: false
+)
+child0.move_to_child_of root1
+
 child1 = Menu.create!(
   name: '企业文化',
   menu_url: '/posts/3',
@@ -166,7 +176,7 @@ child3 = Menu.create!(
 )
 child3.move_to_child_of root2
 # ------------------------------------------
-['加入我们', '联系我们', '企业文化', '业务范围', '发展规划'].each do |name|
+['加入我们', '联系我们', '企业文化', '业务范围', '发展规划', '公司简介'].each do |name|
   Post.create!(
     title: name,
     content: name,
@@ -279,9 +289,9 @@ end
 
 # ------------------------------------------
 
-1.upto(5).each do |i|
+['伊犁华贸农业', '伊犁河谷影视', '伊犁河谷旅游', '伊犁河谷薰衣草苗木', '伊犁河谷生物', '伊犁河谷万亩庄园'].each do |i|
   FriendLink.create!(
-    name: "FriendLink#{i}",
+    name: i,
     f_url: "/pages/#{i}",
     f_logo: "/pages/#{i}.png",
     f_group_id: 1

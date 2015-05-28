@@ -1,41 +1,40 @@
-.item-show-list{
+.item-show-list {
 	margin-left: -44px;
 }
 
-.item-show-list .item{
+.item-show-list .item {
 	margin-bottom: 5px;
 	position: relative;
-	background:url('/frontend/assets/img/blue_dot.png') left 60% no-repeat;
+	background:url('/frontend/assets/img/10.jpg') left 60% no-repeat;
 	padding-left: 30px;
-
 }
 
-.item-show-list .item span{
+.item-show-list .item span {
 	position: absolute;
 	top:50%;
 }
 
-.item-show-list .item img{
+.item-show-list .item img {
 	float: left;
 	margin-left: 100px;
 	width: 150px;
 	height: 120px;
 }
 
-.item-show-list .item a{
+.item-show-list .item a {
 	float: left;
 	margin-top: 10px;
 	margin-left: 30px;
 	text-decoration: none;
 }
 
-.item-show-list .item a .item-title{
+.item-show-list .item a .item-title {
 	font-weight: bold;
 	font-size: 20px;
 	font-family: '微软雅黑';
 }
 
-.item-show-list .item .item-abstract{
+.item-show-list .item .item-abstract {
 	margin-top: 20px;
 	margin-left: 30px;
 	line-height: 24px;

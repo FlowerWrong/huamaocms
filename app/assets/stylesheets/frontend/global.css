@@ -28,7 +28,7 @@ html,body{
 
 #headerNavBar{
 	float: left;
-	width: 630px;
+	width: auto;
 }
 
 #headerNavMenu{
@@ -41,17 +41,18 @@ html,body{
 
 #headerNavMenu li{
 	float: left;
-	width: 76px;
+	width: 100px;
 	height: 24px;
 	margin-right: 10px;
 }
 
 #headerNavMenu li:hover{
 	color: white;
-	background: url('/frontend/assets/img/nav_bg.png');
+	background-color: #8a8aef;
 }
 
 #headerNavMenu li a{
+	font-size: 16px;
 	text-decoration: none;
 	display: block;
 	width: 100%;
@@ -71,14 +72,14 @@ html,body{
 
 /*-----搜索------*/
 
-#search{
+#search {
 	margin-top: 8px;
 	float: left;
 	margin-left: 10px;
 	width: 200px;
 }
 
-#s{
+#s {
 	width: 76%;
 	height: 26px;
 	float: left;
@@ -130,7 +131,7 @@ html,body{
 #friendLink span{
 	font-size: 18px;
 	font-weight: bold;
-	color: #828585;
+	color: #8a8aef;
 }
 
 #friendLink img{
@@ -181,4 +182,24 @@ html,body{
 /* 覆盖分页样式bug */
 .pagination ul {
 	box-shadow: none;
+}
+
+/* 颜色修改 */
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+a:hover, a:focus {
+  color: #8a8aef;
+  text-decoration: underline;
+}
+a:hover, a:active {
+  outline: 0 none;
+}
+
+.font-zi {
+	color: #8a8aef;
 }

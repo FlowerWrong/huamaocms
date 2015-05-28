@@ -2,11 +2,11 @@
   <%= @post.title %>
 <% end %>
 
-<% if @post.id == 1 %>
+<% if [1, 2, 3, 4, 5, 6].include? @post.id %>
 <div id="main">
   <hr>
   <div class="mainBlock">
-    <% if @post.title == "加入我们" %>
+    <% if @post.title == '加入我们' %>
     <img class="joinus-pic" style="width: 960px; height: 186px;" src="<<%= @data['joinus']['image_url'] %>">
     <% end %>
     <div class="menu">
