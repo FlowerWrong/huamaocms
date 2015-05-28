@@ -1,7 +1,7 @@
 require 'yaml'
 
 class Admin::DashboardController < Admin::ApplicationController
-  before_action :set_data, only: [:banners, :update_banners, :logo, :update_logo]
+  before_action :set_data, only: [:banners, :update_banners, :logo, :update_logo, :lavender, :update_lavender, :joinus, :update_joinus]
 
   def index
     flash[:notice] = '欢迎访问后台'
@@ -27,6 +27,7 @@ class Admin::DashboardController < Admin::ApplicationController
     @data['banner_three']['image_url'] = uploader_three.url
     @data['banner_three']['redirect_to'] = params[:redirect_to_three]
     File.open(Rails.root.join('config', 'site.yml'), 'wb') { |f| YAML.dump(@data, f) }
+    flash[:notice] = '修改成功'
     redirect_to '/admin/banners'
   end
 
@@ -39,7 +40,34 @@ class Admin::DashboardController < Admin::ApplicationController
     @data['logo']['image_url'] = uploader_logo.url
     @data['logo']['redirect_to'] = params[:logo_redirect_to]
     File.open(Rails.root.join('config', 'site.yml'), 'wb') { |f| YAML.dump(@data, f) }
+    flash[:notice] = '修改成功'
     redirect_to '/admin/logo'
+  end
+
+  def lavender
+  end
+
+  def update_lavender
+    uploader_lavender = ActsAsImageable::ImageUploader.new
+    uploader_lavender.store!(params[:lavender_img])
+    @data['lavender']['image_url'] = uploader_lavender.url
+    @data['lavender']['redirect_to'] = params[:lavender_redirect_to]
+    File.open(Rails.root.join('config', 'site.yml'), 'wb') { |f| YAML.dump(@data, f) }
+    flash[:notice] = '修改成功'
+    redirect_to '/admin/lavender'
+  end
+
+  def joinus
+  end
+
+  def update_joinus
+    uploader_joinus = ActsAsImageable::ImageUploader.new
+    uploader_joinus.store!(params[:joinus_img])
+    @data['joinus']['image_url'] = uploader_joinus.url
+    @data['logo']['redirect_to'] = params[:joinus_redirect_to]
+    File.open(Rails.root.join('config', 'site.yml'), 'wb') { |f| YAML.dump(@data, f) }
+    flash[:notice] = '修改成功'
+    redirect_to '/admin/joinus'
   end
 
   private

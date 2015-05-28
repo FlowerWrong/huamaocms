@@ -1,7 +1,7 @@
 ---
 logo:
   image_url: "/uploads/images/8fb5c90629016f0c26d86a8de4fe79ac.jpg"
-  redirect_to: "/"
+  redirect_to: http://localhost:3000/admin/joinus
 banner_one:
   image_url: "/uploads/images/ff48ff2a48b3d9aa4a296a9613e745b9.jpeg"
   redirect_to: https://github.com/carrierwaveuploader/carrierwave
@@ -11,3 +11,9 @@ banner_two:
 banner_three:
   image_url: "/uploads/images/7b0b6c252f979943f63d6e22ace98031.png"
   redirect_to: https://github.com/carrierwaveuploader/carrierwave
+joinus:
+  image_url: "/uploads/images/6732ac54553a943abaa6872e44866887.jpeg"
+  redirect_to: "/"
+lavender:
+  image_url: "/uploads/images/b74aaeca1e084c7927ca3f50548080f5.png"
+  redirect_to: http://localhost:3000/admin/lavender

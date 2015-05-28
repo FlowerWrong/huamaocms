@@ -24,7 +24,7 @@
       <h3 style="font-size: 10px; line-height: 20px; letter-spacing: 2px;"><%= @parent_menu.enname %></h3>
       <div class="nav">
         <hr>
-        <img style="width: 160px;" src="" alt="" />
+        <img style="width: 160px;" src="<%= @data['lavender']['image_url'] %>" alt="" />
       </div>
     </div>
     <div class="content">
@@ -76,7 +76,6 @@ $(document).ready(function () {
                 </div>\
                 </form>';
         $("#itemModal").html("");
-        alert(html);
         $("#itemModal").append(html);
       },
       error: function () {

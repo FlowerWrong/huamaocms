@@ -1,0 +1,46 @@
+<% content_for :page_title do %>
+  <%= t 'form.edit' %>薰衣草堂左侧图片
+<% end %>
+
+<% content_for :content_title do %>
+  <%= t 'form.edit' %>薰衣草堂左侧图片
+  <small data-localize="dashboard.WELCOME">欢迎来到码农的世界！</small>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <!-- START panel-->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title"><%= t('form.edit') %>薰衣草堂左侧图片</div>
+      </div>
+      <div class="panel-body">
+
+        <div style="font-size: 24px; color:red;">
+          <p>网站薰衣草堂左侧图片: 160*任意高</p>
+        </div>
+        <%= form_tag("/admin/lavender", method: "post", multipart: true) do %>
+          <fieldset>
+            <div class="form-group">
+              <%= label_tag :lavender_img, "网站薰衣草堂左侧图片", class: 'col-sm-2 control-label' %><br>
+              <div class="col-sm-10" style="margin-bottom: 20px;">
+              <%= image_tag(@data['lavender']['image_url'], width: 120, height: 120) if @data['lavender'] %>
+              <%= file_field_tag :lavender_img %>
+              </div>
+              <%= label_tag :lavender_redirect_to, "网站薰衣草堂左侧图片跳转地址", class: 'col-sm-2 control-label' %><br>
+              <div class="col-sm-10">
+              <%= text_field_tag :lavender_redirect_to, @data['lavender']['redirect_to'], class: 'form-control' %>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="panel-footer text-center">
+            <%= submit_tag t('form.submit'), class: 'btn btn-info submit-form' %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+    <!-- END panel-->
+  </div>
+</div>

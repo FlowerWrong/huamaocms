@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     match 'banners', to: 'dashboard#update_banners', via: :post
     get 'logo' => 'dashboard#logo'
     match 'logo', to: 'dashboard#update_logo', via: :post
+    get 'joinus' => 'dashboard#joinus'
+    match 'joinus', to: 'dashboard#update_joinus', via: :post
+    get 'lavender' => 'dashboard#lavender'
+    match 'lavender', to: 'dashboard#update_lavender', via: :post
 
     get 'ueditor_uploader/index'
     match 'ueditor_uploader/index', to: 'ueditor_uploader#index', via: :post
