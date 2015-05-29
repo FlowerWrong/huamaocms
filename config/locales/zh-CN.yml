@@ -23,6 +23,9 @@ zh-CN:
     attributes:
       user:
         email: '邮箱'
+        password: '新密码'
+        password_confirmation: '确认新密码'
+        current_password: '旧密码'
 
       friend_link:
          name: 名称

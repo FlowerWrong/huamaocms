@@ -67,19 +67,7 @@
                  <ul class="dropdown-menu animated flipInX">
                     <li>
                        <div class="list-group">
-                          <a class="list-group-item" href="/users/sign_out" data-method="delete" rel="nofollow">
-                             <div class="media-box">
-                                <div class="pull-left">
-                                   <em class="fa fa-twitter fa-2x text-info"></em>
-                                </div>
-                                <div class="media-box-body clearfix">
-                                  <p class="m0">
-                                    退出登录
-                                  </p>
-                                </div>
-                             </div>
-                          </a>
-                          <a class="list-group-item" href="#">
+                          <a class="list-group-item" href="/users/edit">
                              <div class="media-box">
                                 <div class="pull-left">
                                    <em class="fa fa-envelope fa-2x text-warning"></em>
@@ -89,16 +77,13 @@
                                 </div>
                              </div>
                           </a>
-                          <a class="list-group-item" href="#">
+                          <a class="list-group-item" href="/users/sign_out" data-method="delete" rel="nofollow">
                              <div class="media-box">
                                 <div class="pull-left">
                                    <em class="fa fa-tasks fa-2x text-success"></em>
                                 </div>
                                 <div class="media-box-body clearfix">
-                                   <p class="m0">待定任务</p>
-                                   <p class="m0 text-muted">
-                                      <small>11 待定任务</small>
-                                   </p>
+                                   <p class="m0">退出登录</p>
                                 </div>
                              </div>
                           </a>
@@ -149,7 +134,7 @@
                        <!-- Name and Job-->
                        <div class="user-block-info">
                           <span class="user-block-name">你好, Dennis</span>
-                          <span class="user-block-role">码农</span>
+                          <span class="user-block-role">Boy</span>
                        </div>
                     </div>
                  </div>
@@ -489,128 +474,7 @@
                  </div>
               </div>
               <div class="tab-pane fade" role="tabpanel" id="app-chat">
-                 <h3 class="text-center text-thin">动态</h3>
-                 <ul class="nav">
-                    <!-- START list title-->
-                    <li class="p">
-                       <small class="text-muted">在线</small>
-                    </li>
-                    <!-- END list title-->
-                    <li>
-                       <!-- START User status-->
-                       <a class="media-box p mt0" href="#">
-                          <span class="pull-right">
-                             <span class="circle circle-success circle-lg"></span>
-                          </span>
-                          <span class="pull-left">
-                             <!-- Contact avatar-->
-                             <img class="media-box-object img-circle thumb48" alt="Image" src="<%= asset_path 'user/05.jpg' %>">
-                          </span>
-                          <!-- Contact info-->
-                          <span class="media-box-body">
-                             <span class="media-box-heading">
-                                <strong>美女1</strong>
-                                <br>
-                                <small class="text-muted">设计师</small>
-                             </span>
-                          </span>
-                       </a>
-                       <!-- END User status-->
-                       <!-- START User status-->
-                       <a class="media-box p mt0" href="#">
-                          <span class="pull-right">
-                             <span class="circle circle-danger circle-lg"></span>
-                          </span>
-                          <span class="pull-left">
-                             <!-- Contact avatar-->
-                             <img class="media-box-object img-circle thumb48" alt="Image" src="<%= asset_path 'user/07.jpg' %>">
-                          </span>
-                          <!-- Contact info-->
-                          <span class="media-box-body">
-                             <span class="media-box-heading">
-                                <strong>美女2</strong>
-                                <br>
-                                <small class="text-muted">诗人</small>
-                             </span>
-                          </span>
-                       </a>
-                       <!-- END User status-->
-                       <!-- START User status-->
-                       <a class="media-box p mt0" href="#">
-                          <span class="pull-right">
-                             <span class="circle circle-warning circle-lg"></span>
-                          </span>
-                          <span class="pull-left">
-                             <!-- Contact avatar-->
-                             <img class="media-box-object img-circle thumb48" alt="Image" src="<%= asset_path 'user/08.jpg' %>">
-                          </span>
-                          <!-- Contact info-->
-                          <span class="media-box-body">
-                             <span class="media-box-heading">
-                                <strong>美女3</strong>
-                                <br>
-                                <small class="text-muted">码农</small>
-                             </span>
-                          </span>
-                       </a>
-                       <!-- END User status-->
-                    </li>
-                    <!-- START list title-->
-                    <li class="p">
-                       <small class="text-muted">未在线</small>
-                    </li>
-                    <!-- END list title-->
-                    <li>
-                       <!-- START User status-->
-                       <a class="media-box p mt0" href="#">
-                          <span class="pull-right">
-                             <span class="circle circle-lg"></span>
-                          </span>
-                          <span class="pull-left">
-                             <!-- Contact avatar-->
-                             <img class="media-box-object img-circle thumb48" alt="Image" src="<%= asset_path 'user/09.jpg' %>">
-                          </span>
-                          <!-- Contact info-->
-                          <span class="media-box-body">
-                             <span class="media-box-heading">
-                                <strong>Dennis</strong>
-                                <br>
-                                <small class="text-muted">开发</small>
-                             </span>
-                          </span>
-                       </a>
-                       <!-- END User status-->
-                    </li>
-                    <li>
-                       <div class="p-lg text-center">
-                          <!-- Optional link to list more users-->
-                          <a class="btn btn-purple btn-sm" title="See more contacts" href="#">
-                             <strong>加载跟多......</strong>
-                          </a>
-                       </div>
-                    </li>
-                 </ul>
-                 <!-- Extra items-->
-                 <div class="p">
-                    <p>
-                       <small class="text-muted">任务完成度</small>
-                    </p>
-                    <div class="progress progress-xs m0">
-                       <div class="progress-bar progress-bar-success progress-80" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar">
-                          <span class="sr-only">80% Complete</span>
-                       </div>
-                    </div>
-                 </div>
-                 <div class="p">
-                    <p>
-                       <small class="text-muted">上传额度</small>
-                    </p>
-                    <div class="progress progress-xs m0">
-                       <div class="progress-bar progress-bar-warning progress-40" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar">
-                          <span class="sr-only">40% Complete</span>
-                       </div>
-                    </div>
-                 </div>
+                <h3 class="text-center text-thin">动态</h3>
               </div>
            </div>
         </div>
