@@ -190,22 +190,13 @@ end
 
 # ------------------------------------------
 admin_user = User.new(
-  :email                 => 'admin@thecampus.cc',
+  :email                 => 'admin@huamao.com',
   :password              => '12345678',
   :password_confirmation => '12345678'
 )
 admin_user.skip_confirmation!
 admin_user.save!
 admin_user.add_role :admin
-
-normal_user = User.new(
-  email: 'normal@thecampus.cc',
-  password: '12345678',
-  password_confirmation: '12345678'
-)
-normal_user.skip_confirmation!
-normal_user.save!
-normal_user.add_role :normal
 
 # ------------------------------------------
 
@@ -246,7 +237,7 @@ Setting.create!(
 Setting.create!(
   slug: '公司网址',
   config_key: 'company_url',
-  config_value: 'thecampus.cc',
+  config_value: 'huamao.com',
   destroyable: false,
   editable: true
 )
@@ -258,33 +249,6 @@ Setting.create!(
   destroyable: false,
   editable: true
 )
-# ------------------------------------------
-
-
-# ------------------------------------------
-
-1.upto(50).each do |i|
-  Post.create!(
-    title: "title#{i}",
-    content: "content#{i}",
-    user_id: 1,
-    author: '杨浮生',
-    category_id: 2,
-    publish_time: Time.now
-  )
-end
-
-51.upto(100).each do |i|
-  Post.create!(
-    title: "title#{i}",
-    content: "content#{i}",
-    user_id: 1,
-    author: '杨浮生',
-    category_id: 3,
-    publish_time: Time.now
-  )
-end
-
 # ------------------------------------------
 
 # ------------------------------------------
