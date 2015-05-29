@@ -14,13 +14,13 @@
       <img src="<%= @data['banner_three']['image_url'] %>" width="1024px" height="352px">
     </a>
   </div>
+
   <div id="mainBlock">
     <div class="mainContentBlock" id="newsContentBlock">
       <div class="mainContentHeaderBar">
         <h1><span>新闻中心/ </span>NEWS CENTER</h1>
         <a href="/categories/2" data-no-turbolink class="font-zi">更多>></a>
       </div>
-
       <ul class="newsList">
         <% @news_center.each do |item| %>
           <li class="newsListItem">

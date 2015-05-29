@@ -229,12 +229,12 @@
 		// navigation
 		$.setNavigation = function(el){
 			// create prev and next
-			$(el).append("<div id='cs-navigation-"+el.id+"'></div>");
-			$('#cs-navigation-'+el.id).hide();
+			//$(el).append("<div id='cs-navigation-"+el.id+"'></div>");
+			//$('#cs-navigation-'+el.id).hide();
 
-			$('#cs-navigation-'+el.id).append("<a href='#' id='cs-prev-"+el.id+"' class='cs-prev'>prev</a>");
-			$('#cs-navigation-'+el.id).append("<a href='#' id='cs-next-"+el.id+"' class='cs-next'>next</a>");
-			$('#cs-prev-'+el.id).css({
+			//$('#cs-navigation-'+el.id).append("<a href='#' id='cs-prev-"+el.id+"' class='cs-prev'>prev</a>");
+			//$('#cs-navigation-'+el.id).append("<a href='#' id='cs-next-"+el.id+"' class='cs-next'>next</a>");
+			/*$('#cs-prev-'+el.id).css({
 				'position' 	: 'absolute',
 				'top'		: params[el.id].height/2 - 15,
 				'left'		: 0,
@@ -259,7 +259,7 @@
 				$.transition(el);
 				$.transitionCall(el);
 			}).mouseover( function(){ $('#cs-navigation-'+el.id).show() });
-
+			*/
 			// image buttons
 			$("<div id='cs-buttons-"+el.id+"' class='cs-buttons'></div>").appendTo($('#coin-slider-'+el.id));
 
@@ -277,12 +277,12 @@
 					$.transitionCall(el);
 				})
 			});
-
+			/*
 			$('#cs-navigation-'+el.id+' a').mouseout(function(){
 				$('#cs-navigation-'+el.id).hide();
 				params[el.id].pause = false;
 			});
-
+			*/
 			$("#cs-buttons-"+el.id).css({
 				'left'			: '50%',
 				'margin-left' 	: -images[el.id].length*15/2-5,

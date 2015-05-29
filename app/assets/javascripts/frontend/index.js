@@ -1,8 +1,7 @@
 jQuery(document).ready(function(){
 	$('#slider').coinslider({
 		width: 1024,
-		height: 352,
-		navigation: false
+		height: 352
 	});
 
 	var _str_path = $.url().attr('path');
