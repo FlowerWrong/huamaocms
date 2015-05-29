@@ -16,6 +16,30 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <%= yield %>
+
+  <div class="wrapper">
+    <div class="block-center mt-xl wd-xl">
+       <!-- START panel-->
+       <div class="panel panel-dark panel-flat">
+          <div class="panel-heading text-center">
+             <a href="#">
+                <img src="<%= asset_path 'logo.png' %>" alt="Image" class="block-center img-rounded">
+             </a>
+          </div>
+          <div class="panel-body">
+            <%= yield %>
+          </div>
+       </div>
+       <!-- END panel-->
+       <div class="p-lg text-center">
+          <span>&copy;</span>
+          <span>2015</span>
+          <span>-</span>
+          <span>Rails</span>
+          <br>
+          <span>广州华茂生物科技有限公司</span>
+       </div>
+    </div>
+  </div>
 </body>
 </html>

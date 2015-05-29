@@ -11,4 +11,7 @@
  * file per style scope.
  *
  *= require_self
+ *= require fontawesome/css/font-awesome
+ *= require simple-line-icons/css/simple-line-icons
+ *= require backend/app
  */

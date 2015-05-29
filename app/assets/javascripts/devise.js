@@ -10,5 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require backend/modernizr
+//
 //= require jquery
 //= require jquery_ujs
+//
+//= require bootstrap/dist/js/bootstrap
+//= require jQuery-Storage-API/jquery.storageapi
+//= require parsleyjs/dist/parsley
+//
+//= require backend/app

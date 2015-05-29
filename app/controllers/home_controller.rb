@@ -1,7 +1,7 @@
 require 'will_paginate/array'
 
 class HomeController < SiteController
-  before_action :set_data, only: [:index, :category, :post, :unknown, :search_result_page, :search]
+  before_action :set_data, only: [:index, :category, :post, :unknown, :search_result_page, :four_hundred, :five_hundred]
 
   layout 'site'
 
@@ -60,6 +60,12 @@ class HomeController < SiteController
   def search_result_page
     keyword = params[:keyword]
     @posts = Post.find_by_sql("SELECT * FROM posts WHERE title LIKE '%#{keyword}%' OR content LIKE '%#{keyword}%'").paginate(page: params[:page], per_page: 12)
+  end
+
+  def four_hundred
+  end
+
+  def five_hundred
   end
 
   def unknown

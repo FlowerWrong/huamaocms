@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'posts/:id' => 'home#post'
   get 'search', to: 'home#search_result_page', as: :search
   get 'api/v1/json/posts/:pid', to: 'home#product', as: :product_json
+  get '404' => 'home#four_hundred'
+  get '500' => 'home#five_hundred'
 
   namespace :admin do
     get 'dashboard' => 'dashboard#index'
