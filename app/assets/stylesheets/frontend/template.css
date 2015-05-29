@@ -13,13 +13,11 @@
 
 .mainBlock{
 	margin-top: 20px;
-
 }
 
 .menu{
 	float: left;
 	width: 200px;
-
 }
 
 .menu h1{
@@ -98,9 +96,9 @@
 }
 
 .content hr{
-	border:2px solid #dfdfdf!important;
+	border: 2px solid #dfdfdf!important;
 	margin-bottom: 22px;
-	margin-top: 5px;
+	margin-top: 10px;
 }
 
 .content #crumbs{

@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="content">
-      <div id="crumbs">
+      <div id="crumbs" style="top: -13px;">
         <a href="/" data-no-turbolink class="font-zi">首页</a> > <a href="<%= @parent_menu.menu_url %>" class="font-zi"><%= @parent_menu.name %></a>
       </div>
       <hr>
@@ -110,7 +110,7 @@ $(document).ready(function () {
       <% end %>
     </div>
     <div class="content">
-      <div id="crumbs"><a href="/" data-no-turbolink class="font-zi">首页</a> >
+      <div id="crumbs" style="top: -13px;"><a href="/" data-no-turbolink class="font-zi">首页</a> >
         <a href="<%= @parent_menu.menu_url %>" data-no-turbolink class="font-zi"><%= @parent_menu.name %></a></div>
       <hr>
       <div class="contentBody">
