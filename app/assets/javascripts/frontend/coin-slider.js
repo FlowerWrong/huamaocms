@@ -228,38 +228,6 @@
 
 		// navigation
 		$.setNavigation = function(el){
-			// create prev and next
-			//$(el).append("<div id='cs-navigation-"+el.id+"'></div>");
-			//$('#cs-navigation-'+el.id).hide();
-
-			//$('#cs-navigation-'+el.id).append("<a href='#' id='cs-prev-"+el.id+"' class='cs-prev'>prev</a>");
-			//$('#cs-navigation-'+el.id).append("<a href='#' id='cs-next-"+el.id+"' class='cs-next'>next</a>");
-			/*$('#cs-prev-'+el.id).css({
-				'position' 	: 'absolute',
-				'top'		: params[el.id].height/2 - 15,
-				'left'		: 0,
-				'z-index' 	: 1001,
-				'line-height': '30px',
-				'opacity'	: params[el.id].opacity
-			}).click( function(e){
-				e.preventDefault();
-				$.transition(el,'prev');
-				$.transitionCall(el);
-			}).mouseover( function(){ $('#cs-navigation-'+el.id).show() });
-
-			$('#cs-next-'+el.id).css({
-				'position' 	: 'absolute',
-				'top'		: params[el.id].height/2 - 15,
-				'right'		: 0,
-				'z-index' 	: 1001,
-				'line-height': '30px',
-				'opacity'	: params[el.id].opacity
-			}).click( function(e){
-				e.preventDefault();
-				$.transition(el);
-				$.transitionCall(el);
-			}).mouseover( function(){ $('#cs-navigation-'+el.id).show() });
-			*/
 			// image buttons
 			$("<div id='cs-buttons-"+el.id+"' class='cs-buttons'></div>").appendTo($('#coin-slider-'+el.id));
 
@@ -277,24 +245,14 @@
 					$.transitionCall(el);
 				})
 			});
-			/*
-			$('#cs-navigation-'+el.id+' a').mouseout(function(){
-				$('#cs-navigation-'+el.id).hide();
-				params[el.id].pause = false;
-			});
-			*/
+
 			$("#cs-buttons-"+el.id).css({
 				'left'			: '50%',
 				'margin-left' 	: -images[el.id].length*15/2-5,
 				'position'		: 'relative'
 
 			});
-
-
 		}
-
-
-
 
 		// effects
 		$.effect = function(el){
