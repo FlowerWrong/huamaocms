@@ -7,9 +7,9 @@
   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, rails, bower">
   <title><%= yield :page_title %></title>
   <link rel="stylesheet" type="text/css" href="/frontend/assets/bootstrap/css/bootstrap.css">
-  <%= stylesheet_link_tag 'site', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'site', media: 'all' %>
   <%= yield :page_only_css %>
-  <%= javascript_include_tag 'site', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'site' %>
   <script type="text/javascript" src="/frontend/assets/bootstrap/js/bootstrap.js"></script>
   <%= yield :page_only_js %>
   <%= csrf_meta_tags %>
@@ -25,7 +25,7 @@
   </style>
   <![endif]-->
 <script type="text/javascript">
-$(document).on('ready page:load', function(){
+$(document).on('ready', function(){
   var _str_current_path = $.url().attr('path');
   $("#headerNavMenu li a").each(function(){
     var _str_each_path = $(this).attr("href");

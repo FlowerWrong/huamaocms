@@ -6,9 +6,9 @@
   <meta name="description" content="Base rails app">
   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin, rails, bower">
   <title><%= yield :page_title %></title>
-  <%= stylesheet_link_tag 'devise', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'devise', media: 'all' %>
   <%= yield :page_only_css %>
-  <%= javascript_include_tag 'devise', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'devise' %>
   <%= yield :page_only_js %>
   <%= csrf_meta_tags %>
   <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">

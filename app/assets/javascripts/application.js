@@ -15,7 +15,6 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
-//= require turbolinks
 //
 //= require bootstrap/dist/js/bootstrap
 //= require jQuery-Storage-API/jquery.storageapi
