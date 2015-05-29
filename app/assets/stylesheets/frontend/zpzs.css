@@ -13,8 +13,7 @@
 #itemModal h1{
 	font-family: '微软雅黑';
 	padding-left: 28px;
-	color: #0075a6;
-	background: url('/frontend/assets/img/gsjs_h1.png') left no-repeat;
+	color: #8a8aef;
 }
 
 .modal-body img.item-pic{

@@ -35,14 +35,16 @@ $(document).on('ready', function(){
       // $('a', $("#headerNavMenu li")[0]).css({"color": "white", "background-color": "#0088cc"});
     }
   });
-/*
+
   $(".mainBlock .menu .nav ul li a").each(function(){
     var _str_each_path = $(this).attr("href");
-    if(_str_each_path == '/') {
-      $(this).parent().css({"background": "none repeat scroll 0 0 #034f71"});
+    if(_str_each_path === _str_current_path) {
+      $(this).parent().css({"color": "white", "background-color": "#4d4ede"});
+    } else {
+      // $('a', $("#headerNavMenu li")[0]).css({"color": "white", "background-color": "#0088cc"});
     }
   });
-*/
+
 });
 </script>
 </head>

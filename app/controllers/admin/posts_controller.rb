@@ -1,10 +1,11 @@
 class Admin::PostsController < Admin::ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_cats, only: [:new, :edit]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.where('id > 6')
   end
 
   # GET /posts/1
@@ -79,6 +80,10 @@ class Admin::PostsController < Admin::ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_cats
+    @categories = Category.nested_set.select('id, name, parent_id')
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

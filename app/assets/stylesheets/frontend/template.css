@@ -89,8 +89,7 @@
 .content h1.content-title{
 	font-family: '微软雅黑';
 	padding-left: 28px;
-	color: #0075a6;
-	background: url('/frontend/assets/img/gsjs_h1.png') left no-repeat;
+	color: #8a8aef;
 	font-size: 16px;
 }
 
@@ -107,7 +106,7 @@
 .content #crumbs{
 	position: absolute;
 	right: 0;
-	top:-14px;
+	top: 5px;
 	padding-left: 12px;
 }
 

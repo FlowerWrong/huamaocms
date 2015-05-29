@@ -38,9 +38,12 @@ class HomeController < SiteController
   def post
     @post = Post.find params[:id]
     @cat = @post.category
-
-    menus = Menu.where(menu_url: "/posts/#{@post.id}")
-    @menu = menus.first || Menu.first
+    if [1, 2, 3, 4, 5, 6].include? @post.id
+      @menus = Menu.where(menu_url: "/posts/#{@post.id}")
+    else
+      @menus = Menu.where(menu_url: "/categories/#{@cat.id}")
+    end
+    @menu = @menus.first || Menu.first
     @menu_children = []
     @parent_menu = nil
     if @menu.root?

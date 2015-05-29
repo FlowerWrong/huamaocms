@@ -188,6 +188,18 @@ child3.move_to_child_of root2
   )
 end
 
+1.upto(100).each do |i|
+  Post.create!(
+    title: "title#{i}",
+    content: "content#{i}",
+    user_id: 1,
+    author: '杨浮生',
+    category_id: (rand(5) + 1).to_i,
+    publish_time: Time.now,
+    destroyable: false
+  )
+end
+
 # ------------------------------------------
 admin_user = User.new(
   :email                 => 'admin@huamao.com',

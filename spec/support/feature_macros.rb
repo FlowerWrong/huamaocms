@@ -8,7 +8,7 @@ module FeaturesMacros
       fill_in 'user[email]', :with => user.email
       fill_in 'user[password]', :with => '12345678'
     end
-    click_button 'Log in'
+    click_button '登录'
     expect(page).to have_content '登录成功'
   end
 
@@ -20,7 +20,7 @@ module FeaturesMacros
       fill_in 'user[email]', :with => user.email
       fill_in 'user[password]', :with => '12345678'
     end
-    click_button 'Log in'
+    click_button '登录'
     expect(page).to have_content '登录成功'
   end
 
