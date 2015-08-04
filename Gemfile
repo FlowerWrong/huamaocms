@@ -1,17 +1,17 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.3'
 gem 'mysql2'
 
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'uglifier', '>= 1.3'
+gem 'coffee-rails', '~> 4.1'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 
 gem 'dotenv-rails'
 
-gem 'globalize', '~> 5.0.0'
+gem 'globalize', '~> 5.0'
 
 gem 'devise'
 gem 'devise-i18n'
@@ -35,9 +35,9 @@ gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 gem 'will-paginate-i18n', github: 'afunction/will-paginate-i18n', branch: 'master'
 
-gem 'faye-websocket', require: false
-gem 'eventmachine', require: false
-gem 'puma'
+# gem 'faye-websocket', require: false
+# gem 'eventmachine', require: false
+# gem 'puma'
 
 group :development, :test do
   gem 'byebug'
@@ -70,7 +70,7 @@ end
 
 group :development do
   # deploy
-  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano', '~> 3.4'
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
@@ -87,4 +87,4 @@ group :test do
   gem 'ffaker'
 end
 
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 0.4', group: :doc

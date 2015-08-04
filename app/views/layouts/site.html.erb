@@ -14,16 +14,6 @@
   <%= yield :page_only_js %>
   <%= csrf_meta_tags %>
   <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
-  <!--[if  lte IE 7]>
-  <style type="text/css">
-  #wrapper{
-    display: none;
-  }
-  #ieBody{
-    display: block;
-  }
-  </style>
-  <![endif]-->
 <script type="text/javascript">
 $(document).on('ready', function(){
   var _str_current_path = $.url().attr('path');
@@ -62,16 +52,6 @@ $(document).on('ready', function(){
           <% end %>
         </ul>
       </div>
-<!--
-      <div id = "search">
-        <form id="searchform" action="/search" method="get">
-          <input type="text" name="keyword" id="s" placeholder='请输入搜索内容'>
-          <button id="searchsubmit">
-            <img src="/frontend/assets/img/search.png">
-          </button>
-        </form>
-      </div>
--->
     </div>
   </div>
   <div style="clear:both;"></div>
@@ -96,9 +76,6 @@ $(document).on('ready', function(){
       </div>
     </div>
   </div>
-</div>
-<div id="ieBody">
-  <p>本网站只兼容IE8及以上浏览器和其他现代浏览器。</p>
 </div>
 </body>
 </html>
